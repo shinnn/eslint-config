@@ -1,0 +1,6 @@
+{
+  "name": "@shinnn/eslint-config",
+  "private": true,
+  "version": "1.0.0",
+  "main": "../../.."
+}
