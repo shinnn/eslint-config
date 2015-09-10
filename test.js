@@ -8,7 +8,9 @@ const chalk = require('chalk');
 const stringifyObject = require('stringify-object');
 const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
-spawn('node', ['node_modules/eslint/bin/eslint.js', '--config=@shinnn', '.'], {stdio: 'inherit'})
+const configId = require('./package.json').name;
+
+spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], {stdio: 'inherit'})
 .on('exit', function(code) {
   if (code !== 0) {
     process.exit(code);
@@ -73,7 +75,7 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config=@shinnn', '.'], {s
     'no-bitwise',
     'no-plusplus'
   ];
-  const actuallyUnconfigured = unconfiguredESLintRules({configFile: '@shinnn'});
+  const actuallyUnconfigured = unconfiguredESLintRules({configFile: configId});
   const unexpectedlyUnconfigured = arrayDiffer(actuallyUnconfigured, explicitlyUnconfigured);
 
   if (unexpectedlyUnconfigured.length !== 0) {
