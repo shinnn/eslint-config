@@ -16,8 +16,6 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     process.exit(code);
   }
 
-  console.log(chalk.green('[PASSED] ') + 'Rules are configured as you expected.');
-
   const explicitlyUnconfigured = [
     // Possible Errors: http://eslint.org/docs/rules/#possible-errors
     'no-console',
@@ -94,5 +92,5 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     process.exit(1);
   });
 
-  console.log(chalk.green('[PASSED] ') + 'No rules are unexpectedly unconfigured.');
+  console.log(chalk.green('[PASSED] ') + 'Rules are configured as you expected.');
 });
