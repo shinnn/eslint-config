@@ -34,7 +34,6 @@ module.exports = {
     // Possible Errors: http://eslint.org/docs/rules/#possible-errors
     'comma-dangle': 2,
     'no-cond-assign': 2,
-    'no-console': 0,
     'no-constant-condition': 2,
     'no-control-regex': 2,
     'no-debugger': 2,

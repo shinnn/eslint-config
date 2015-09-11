@@ -20,6 +20,7 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
 
   const explicitlyUnconfigured = [
     // Possible Errors: http://eslint.org/docs/rules/#possible-errors
+    'no-console',
     'no-continue',
     'valid-jsdoc',
 
