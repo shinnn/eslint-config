@@ -4,7 +4,7 @@
 const spawn = require('child_process').spawn;
 
 const arrayDiffer = require('array-differ');
-const chalk = require('chalk');
+const log = require('logalot');
 const stringifyObject = require('stringify-object');
 const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
@@ -84,13 +84,9 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
       return;
     }
 
-    console.error(
-      chalk.red('[FAILED] ') + '\n' +
-      `These rules are unexpectedly ${key}:\n` +
-      stringifyObject(unexpected[key], {indent: '  '})
-    );
+    log.error(`These rules are unexpectedly ${key}:\n${stringifyObject(unexpected[key], {indent: '  '})}`);
     process.exit(1);
   });
 
-  console.log(chalk.green('[PASSED] ') + 'Rules are configured as you expected.');
+  log.success('Rules are configured as you expected.');
 });
