@@ -76,15 +76,23 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'no-plusplus'
   ];
   const actuallyUnconfigured = unconfiguredESLintRules({configFile: configId});
-  const unexpectedlyUnconfigured = arrayDiffer(actuallyUnconfigured, explicitlyUnconfigured);
+  const unexpected = {
+    unconfigured: arrayDiffer(actuallyUnconfigured, explicitlyUnconfigured),
+    configured: arrayDiffer(explicitlyUnconfigured, actuallyUnconfigured)
+  };
 
-  if (unexpectedlyUnconfigured.length !== 0) {
+  Object.keys(unexpected).forEach(key => {
+    if (unexpected[key].length === 0) {
+      return;
+    }
+
     console.error(
       chalk.red('[FAILED] ') + '\n' +
-      'These rules are unexpectedly unconfigured:\n' +
-      stringifyObject(unexpectedlyUnconfigured, {indent: '  '})
+      `These rules are unexpectedly ${key}:\n` +
+      stringifyObject(unexpected[key], {indent: '  '})
     );
     process.exit(1);
-  }
+  });
+
   console.log(chalk.green('[PASSED] ') + 'No rules are unexpectedly unconfigured.');
 });
