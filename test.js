@@ -65,7 +65,6 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'prefer-spread',
     'prefer-reflect',
     'prefer-template',
-    'require-yield',
 
     // Legacy: http://eslint.org/docs/rules/#legacy
     'max-depth',
