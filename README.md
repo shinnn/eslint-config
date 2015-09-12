@@ -23,11 +23,9 @@ eslint --config @shinnn .
 ## API
 
 ```javascript
-'use strict';
+const {CLIEngine} = require('eslint');
 
-var CLIEngine = require('eslint').CLIEngine;
-
-var cli = new CLIEngine({configFile: '@shinnn'});
+const cli = new CLIEngine({configFile: '@shinnn'});
 cli.executeOnText('var foo=true;'); //=> {results: [ ... ], errorCount: ... }
 ```
 
