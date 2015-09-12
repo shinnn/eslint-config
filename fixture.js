@@ -1,3 +1,7 @@
+/*!*
+ * Block comment
+*/
+
 // Line comment
 'use strict';
 

@@ -300,7 +300,13 @@ module.exports = {
     ],
     'spaced-comment': [
       2,
-      'always'
+      'always',
+      {
+        block: {
+          markers: ['!'],
+          exceptions: ['*']
+        }
+      }
     ],
 
     // ECMAScript2015: http://eslint.org/docs/rules/#ecmascript-6
