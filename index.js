@@ -230,6 +230,10 @@ module.exports = {
     ],
     'no-nested-ternary': 2,
     'no-new-object': 2,
+    'no-restricted-syntax': [
+      2,
+      'WithStatement'
+    ],
     'no-spaced-func': 2,
     'no-trailing-spaces': 2,
     'no-underscore-dangle': 2,
@@ -277,6 +281,11 @@ module.exports = {
       2,
       'always'
     ],
+    // https://github.com/eslint/eslint/issues/3756
+    // 'space-before-keywords': [
+    //   2,
+    //   'always'
+    // ],
     'space-before-blocks': [
       2,
       'always'

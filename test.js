@@ -40,6 +40,7 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
 
     // Node.js and CommonJS: http://eslint.org/docs/rules/#nodejs-and-commonjs
     'callback-return',
+    'global-require',
     'no-restricted-modules',
     'no-sync',
 
@@ -47,12 +48,15 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'func-names',
     'func-style',
     'id-length',
+    'jsx-quotes',
     'consistent-this',
     'lines-around-comment',
     'newline-after-var',
     'no-inline-comments',
     'no-ternary',
     'id-match',
+    'require-jsdoc',
+    'space-before-keywords',
     'sort-vars',
     'wrap-regex',
 
