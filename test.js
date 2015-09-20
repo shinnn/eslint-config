@@ -1,14 +1,14 @@
 /* eslint-disable no-process-exit */
 'use strong';
 
-const spawn = require('child_process').spawn;
+const {spawn} = require('child_process');
 
 const arrayDiffer = require('array-differ');
 const log = require('logalot');
 const stringifyObject = require('stringify-object');
 const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
-const configId = require('./package.json').name;
+const configId = require.resolve('./');
 
 spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], {stdio: 'inherit'})
 .on('exit', function(code) {
@@ -25,6 +25,7 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     // Best Practices: http://eslint.org/docs/rules/#best-practices
     'default-case',
     'no-invalid-this',
+    'no-magic-numbers',
     'no-new',
     'no-param-reassign',
     'no-process-env',

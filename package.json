@@ -4,8 +4,7 @@
   "description": "shinnn's ESLint config for both client-side and Node-based projects",
   "repository": "shinnn/eslint-config",
   "scripts": {
-    "pretest": "npm uninstall @shinnn/eslint-config && npm install .",
-    "test": "node  --strong_mode test.js"
+    "test": "node  --strong_mode --harmony_destructuring test.js"
   },
   "license": "MIT",
   "publishConfig": {
@@ -35,7 +34,7 @@
   "devDependencies": {
     "@shinnn/eslint-config": "file:.",
     "array-differ": "^1.0.0",
-    "eslint": "^1.6.0",
+    "eslint": "^1.7.0",
     "logalot": "^2.1.0",
     "stringify-object": "^2.3.0",
     "unconfigured-eslint-rules": "^1.0.1"
