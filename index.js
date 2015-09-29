@@ -320,6 +320,7 @@ module.exports = {
     ],
 
     // ECMAScript2015: http://eslint.org/docs/rules/#ecmascript-6
+    'arrow-body-style': [2, 'as-needed'],
     'arrow-parens': [
       2,
       'as-needed'
@@ -336,6 +337,7 @@ module.exports = {
       2,
       'before'
     ],
+    'no-arrow-condition': 2,
     'no-class-assign': 2,
     'no-const-assign': 2,
     'no-dupe-class-members': 2,
