@@ -1,27 +1,7 @@
 module.exports = {
-  ecmaFeatures: {
-    arrowFunctions: true,
-    binaryLiterals: true,
-    blockBindings: true,
-    classes: true,
-    defaultParams: true,
-    destructuring: true,
-    experimentalObjectRestSpread: true,
-    forOf: true,
-    generators: true,
-    modules: true,
-    objectLiteralComputedProperties: true,
-    objectLiteralDuplicateProperties: true,
-    objectLiteralShorthandMethods: true,
-    objectLiteralShorthandProperties: true,
-    octalLiterals: true,
-    regexUFlag: true,
-    regexYFlag: true,
-    restParams: true,
-    spread: true,
-    superInFunctions: true,
-    templateStrings: true,
-    unicodeCodePointEscapes: true
+  parserOptions: {
+    ecmaVersion: 6,
+    sourceType: 'module'
   },
   env: {
     browser: true,
@@ -61,6 +41,7 @@ module.exports = {
 
     // Best Practices: http://eslint.org/docs/rules/#best-practices
     'accessor-pairs': 2,
+    'array-callback-return': 2,
     'block-scoped-var': 2,
     complexity: [
       2,
@@ -80,7 +61,6 @@ module.exports = {
     'no-case-declarations': 2,
     'no-div-regex': 2,
     'no-else-return': 2,
-    'no-empty-label': 2,
     'no-empty-pattern': 2,
     'no-eq-null': 2,
     'no-eval': 2,
@@ -96,6 +76,7 @@ module.exports = {
         string: true
       }
     ],
+    'no-implicit-globals': 2,
     'no-implied-eval': 2,
     'no-iterator': 2,
     'no-labels': 2,
@@ -120,8 +101,10 @@ module.exports = {
       'always'
     ],
     'no-script-url': 2,
+    'no-self-assign': 2,
     'no-self-compare': 2,
     'no-throw-literal': 2,
+    'no-unmodified-loop-condition': 2,
     'no-unused-expressions': 2,
     'no-useless-call': 2,
     'no-useless-concat': 2,
@@ -201,6 +184,10 @@ module.exports = {
         SwitchCase: 1
       }
     ],
+    'id-blacklist': [
+      2,
+      'shit'
+    ],
     'key-spacing': [
       2,
       {
@@ -208,6 +195,7 @@ module.exports = {
         afterColon: true
       }
     ],
+    'keyword-spacing': 2,
     'linebreak-style': [
       2,
       'unix'
@@ -221,6 +209,12 @@ module.exports = {
       }
     ],
     'new-parens': 2,
+    'newline-per-chained-call': [
+      2,
+      {
+        ignoreChainWithDepth: 3
+      }
+    ],
     'no-array-constructor': 2,
     'no-lonely-if': 2,
     'no-mixed-spaces-and-tabs': 2,
@@ -236,6 +230,7 @@ module.exports = {
       2,
       'WithStatement'
     ],
+    'no-whitespace-before-property': 2,
     'no-spaced-func': 2,
     'no-trailing-spaces': 2,
     'no-underscore-dangle': 2,
@@ -279,15 +274,6 @@ module.exports = {
       2,
       'always'
     ],
-    'space-after-keywords': [
-      2,
-      'always'
-    ],
-    // https://github.com/eslint/eslint/issues/3756
-    // 'space-before-keywords': [
-    //   2,
-    //   'always'
-    // ],
     'space-before-blocks': [
       2,
       'always'
@@ -301,7 +287,6 @@ module.exports = {
       'never'
     ],
     'space-infix-ops': 2,
-    'space-return-throw-case': 2,
     'space-unary-ops': [
       2,
       {
@@ -320,7 +305,7 @@ module.exports = {
       }
     ],
 
-    // ECMAScript2015: http://eslint.org/docs/rules/#ecmascript-6
+    // ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
     'arrow-body-style': [2, 'as-needed'],
     'arrow-parens': [
       2,
@@ -338,11 +323,23 @@ module.exports = {
       2,
       'before'
     ],
-    'no-arrow-condition': 2,
     'no-class-assign': 2,
     'no-const-assign': 2,
     'no-dupe-class-members': 2,
+    'no-new-symbol': 2,
     'no-this-before-super': 2,
-    'require-yield': 2
+    'prefer-rest-params': 2,
+    'require-yield': 2,
+    'template-curly-spacing': [
+      2,
+      'never'
+    ],
+    'yield-star-spacing': [
+      2,
+      {
+        before: true,
+        after: false
+      }
+    ]
   }
 };

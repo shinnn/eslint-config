@@ -8,7 +8,7 @@ const log = require('logalot');
 const stringifyObject = require('stringify-object');
 const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
-const configId = require.resolve('./');
+const configId = require.resolve('.');
 
 spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], {stdio: 'inherit'})
 .on('exit', function(code) {
@@ -24,6 +24,9 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
 
     // Best Practices: http://eslint.org/docs/rules/#best-practices
     'default-case',
+    'no-empty-function',
+    // because 'no-labels' is already enabled
+    'no-extra-label',
     'no-invalid-this',
     'no-magic-numbers',
     'no-new',
@@ -31,6 +34,8 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'no-process-env',
     'no-sequences',
     'vars-on-top',
+    // because 'no-labels' is already enabled
+    'no-unused-labels',
 
     // Strict Mode: http://eslint.org/docs/rules/#strict-mode
     'strict',
@@ -42,28 +47,33 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     // Node.js and CommonJS: http://eslint.org/docs/rules/#nodejs-and-commonjs
     'callback-return',
     'global-require',
+    'no-restricted-imports',
     'no-restricted-modules',
     'no-sync',
 
     // Stylistic Issues: http://eslint.org/docs/rules/#stylistic-issues
+    'consistent-this',
     'func-names',
     'func-style',
     'id-length',
+    'id-match',
     'jsx-quotes',
-    'consistent-this',
     'lines-around-comment',
     'newline-after-var',
     'no-inline-comments',
     'no-negated-condition',
     'no-ternary',
-    'id-match',
+    // because 'one-var' is already disallowed
+    'one-var-declaration-per-line',
     'require-jsdoc',
-    'space-before-keywords',
     'sort-vars',
+    'sort-imports',
     'wrap-regex',
 
     // ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
+    'no-confusing-arrow',
     'no-var',
+    'no-useless-constructor',
     'object-shorthand',
     'prefer-arrow-callback',
     'prefer-const',

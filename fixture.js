@@ -37,8 +37,9 @@ class Class {
 function createId() {
   var index = 0;
   while (index < 100000) {
-    return index++;
+    index++;
   }
+  return index;
 }
 
 window
