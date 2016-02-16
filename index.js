@@ -212,7 +212,7 @@ module.exports = {
     'newline-per-chained-call': [
       2,
       {
-        ignoreChainWithDepth: 3
+        ignoreChainWithDepth: 5
       }
     ],
     'no-array-constructor': 2,
