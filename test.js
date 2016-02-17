@@ -71,6 +71,7 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'wrap-regex',
 
     // ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
+    'arrow-body-style',
     'no-confusing-arrow',
     'no-var',
     'no-useless-constructor',

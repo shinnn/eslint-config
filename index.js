@@ -306,7 +306,6 @@ module.exports = {
     ],
 
     // ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
-    'arrow-body-style': [2, 'as-needed'],
     'arrow-parens': [
       2,
       'as-needed'
