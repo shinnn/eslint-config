@@ -108,6 +108,7 @@ module.exports = {
     'no-unused-expressions': 2,
     'no-useless-call': 2,
     'no-useless-concat': 2,
+    'no-useless-escape': 2,
     'no-void': 2,
     'no-warning-comments': 2,
     'no-with': 2,
@@ -128,6 +129,7 @@ module.exports = {
     'no-catch-shadow': 2,
     'no-delete-var': 2,
     'no-label-var': 2,
+    'no-restricted-globals': 2,
     'no-shadow-restricted-names': 2,
     'no-shadow': 2,
     'no-undef-init': 2,
@@ -201,6 +203,12 @@ module.exports = {
       'unix'
     ],
     'max-nested-callbacks': [2, 6],
+    'max-statements-per-line': [
+      2,
+      {
+        max: 1
+      }
+    ],
     'new-cap': [
       2,
       {
@@ -325,6 +333,7 @@ module.exports = {
     'no-class-assign': 2,
     'no-const-assign': 2,
     'no-dupe-class-members': 2,
+    'no-duplicate-imports': 2,
     'no-new-symbol': 2,
     'no-this-before-super': 2,
     'prefer-rest-params': 2,
