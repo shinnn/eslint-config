@@ -63,12 +63,13 @@ var encoding = ['utf8'].filter(() => typeof this === 'string');
   ];
 
   var obj = {'_a.r/r': [!!{fn}, new Array(1), arr]};
+  var getterName = 'g.e.t.t.e.r';
 
   obj.push({
     set a(value) {
       this.v = true;
     },
-    get ['p.r.o.p']() {
+    get [getterName]() {
       return this.v;
     }
   });

@@ -35,6 +35,7 @@ module.exports = {
     'no-regex-spaces': 2,
     'no-sparse-arrays': 2,
     'no-unreachable': 2,
+    'no-unsafe-finally': 2,
     'use-isnan': 2,
     'valid-typeof': 2,
     'no-unexpected-multiline': 2,
@@ -336,6 +337,7 @@ module.exports = {
     'no-duplicate-imports': 2,
     'no-new-symbol': 2,
     'no-this-before-super': 2,
+    'no-useless-computed-key': 2,
     'prefer-rest-params': 2,
     'require-yield': 2,
     'template-curly-spacing': [
