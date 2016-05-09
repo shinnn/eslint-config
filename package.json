@@ -4,7 +4,7 @@
   "description": "shinnn's ESLint config for both client-side and Node-based projects",
   "repository": "shinnn/eslint-config",
   "scripts": {
-    "test": "node --strong_mode --harmony_destructuring test.js"
+    "test": "node --strong_mode test.js"
   },
   "license": "MIT",
   "publishConfig": {
