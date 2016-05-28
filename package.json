@@ -33,7 +33,7 @@
   ],
   "devDependencies": {
     "array-differ": "^2.0.3",
-    "eslint": "^2.9.0",
+    "eslint": "^2.11.0",
     "logalot": "^2.1.0",
     "stringify-object": "^2.3.1",
     "unconfigured-eslint-rules": "^2.0.0"

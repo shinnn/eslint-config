@@ -32,6 +32,7 @@ module.exports = {
     'no-irregular-whitespace': 2,
     'no-negated-in-lhs': 2,
     'no-obj-calls': 2,
+    'no-prototype-builtins': 2,
     'no-regex-spaces': 2,
     'no-sparse-arrays': 2,
     'no-unreachable': 2,
@@ -248,6 +249,12 @@ module.exports = {
       2,
       'never'
     ],
+    'object-property-newline': [
+      2,
+      {
+        allowMultiplePropertiesPerLine: true
+      }
+    ],
     'one-var': [
       2,
       'never'
@@ -313,6 +320,10 @@ module.exports = {
         }
       }
     ],
+    'unicode-bom': [
+      2,
+      'never'
+    ],
 
     // ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
     'arrow-parens': [
@@ -338,6 +349,7 @@ module.exports = {
     'no-new-symbol': 2,
     'no-this-before-super': 2,
     'no-useless-computed-key': 2,
+    'no-useless-rename': 2,
     'prefer-rest-params': 2,
     'require-yield': 2,
     'template-curly-spacing': [

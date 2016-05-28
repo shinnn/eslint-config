@@ -75,7 +75,7 @@ var encoding = ['utf8'].filter(() => typeof this === 'string');
   });
 
   for (var prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
+    if (Object.prototype.hasOwnProperty.call(obj, prop)) {
       switch (window.count) {
         case 1:
           worker.postMessage();
