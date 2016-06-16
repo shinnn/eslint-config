@@ -64,6 +64,7 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'no-inline-comments',
     'no-negated-condition',
     'no-ternary',
+    'object-curly-newline',
     // because 'one-var' is already disallowed
     'one-var-declaration-per-line',
     'require-jsdoc',

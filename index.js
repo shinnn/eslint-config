@@ -24,7 +24,13 @@ module.exports = {
     'no-empty': 2,
     'no-ex-assign': 2,
     'no-extra-boolean-cast': 2,
-    'no-extra-parens': 2,
+    'no-extra-parens': [
+      2,
+      'all',
+      {
+        nestedBinaryExpressions: false
+      }
+    ],
     'no-extra-semi': 2,
     'no-func-assign': 2,
     'no-inner-declarations': 2,
@@ -204,6 +210,10 @@ module.exports = {
       2,
       'unix'
     ],
+    'max-lines': [
+      2,
+      5000
+    ],
     'max-nested-callbacks': [2, 6],
     'max-statements-per-line': [
       2,
@@ -227,6 +237,7 @@ module.exports = {
     ],
     'no-array-constructor': 2,
     'no-lonely-if': 2,
+    'no-mixed-operators': 2,
     'no-mixed-spaces-and-tabs': 2,
     'no-multiple-empty-lines': [
       2,
@@ -352,6 +363,10 @@ module.exports = {
     'no-useless-rename': 2,
     'prefer-rest-params': 2,
     'require-yield': 2,
+    'rest-spread-spacing': [
+      2,
+      'never'
+    ],
     'template-curly-spacing': [
       2,
       'never'
