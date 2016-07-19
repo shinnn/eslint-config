@@ -59,10 +59,17 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'id-match',
     'jsx-quotes',
     'lines-around-comment',
+    'max-depth',
+    'max-len',
+    'max-params',
+    'max-statements',
+    'multiline-ternary',
     'newline-after-var',
     'newline-before-return',
+    'no-bitwise',
     'no-inline-comments',
     'no-negated-condition',
+    'no-plusplus',
     'no-ternary',
     'object-curly-newline',
     // because 'one-var' is already disallowed
@@ -82,15 +89,7 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'prefer-const',
     'prefer-spread',
     'prefer-reflect',
-    'prefer-template',
-
-    // Legacy: http://eslint.org/docs/rules/#legacy
-    'max-depth',
-    'max-len',
-    'max-params',
-    'max-statements',
-    'no-bitwise',
-    'no-plusplus'
+    'prefer-template'
   ];
   const actuallyUnconfigured = unconfiguredESLintRules({configFile: configId});
   const unexpected = {
