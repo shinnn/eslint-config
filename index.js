@@ -244,7 +244,6 @@ module.exports = {
     ],
     'no-array-constructor': 'error',
     'no-lonely-if': 'error',
-    'no-mixed-operators': 'error',
     'no-mixed-spaces-and-tabs': 'error',
     'no-multiple-empty-lines': [
       'error',
