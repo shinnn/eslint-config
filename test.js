@@ -70,11 +70,13 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'no-mixed-operators',
     'no-negated-condition',
     'no-plusplus',
+    'no-tabs',
     'no-ternary',
     'object-curly-newline',
     // because 'one-var' is already disallowed
     'one-var-declaration-per-line',
     'require-jsdoc',
+    'sort-keys',
     'sort-vars',
     'sort-imports',
     'wrap-regex',
@@ -89,7 +91,12 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'prefer-const',
     'prefer-spread',
     'prefer-reflect',
-    'prefer-template'
+    'prefer-template',
+
+    // Deprecated http://eslint.org/docs/rules/#deprecated
+    'no-native-reassign',
+    'no-negated-in-lhs',
+    'no-spaced-func'
   ];
   const actuallyUnconfigured = unconfiguredESLintRules({configFile: configId});
   const unexpected = {
