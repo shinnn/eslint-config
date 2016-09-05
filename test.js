@@ -1,5 +1,5 @@
 /* eslint-disable no-process-exit */
-'use strong';
+'use strict';
 
 const {spawn} = require('child_process');
 
@@ -11,7 +11,7 @@ const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 const configId = require.resolve('.');
 
 spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], {stdio: 'inherit'})
-.on('exit', function(code) {
+.on('exit', code => {
   if (code !== 0) {
     process.exit(code);
   }
