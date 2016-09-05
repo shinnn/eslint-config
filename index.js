@@ -55,6 +55,7 @@ module.exports = {
       'error',
       12
     ],
+    'class-methods-use-this': 'error',
     'consistent-return': 'error',
     curly: 'error',
     'dot-notation': 'error',
@@ -375,6 +376,7 @@ module.exports = {
       'error',
       'never'
     ],
+    'symbol-description': 'error',
     'template-curly-spacing': [
       'error',
       'never'
