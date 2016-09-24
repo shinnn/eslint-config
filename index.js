@@ -105,6 +105,164 @@ module.exports = {
         builtinGlobals: true
       }
     ],
+    'no-restricted-properties': [
+      'error',
+      {
+        object: 'console',
+        property: 'warn',
+        message: 'It is just an alias for console.error().'
+      },
+      {
+        object: 'util',
+        property: 'debug',
+        message: 'Deprecated since Node v0.11.3 in favor of console.error().'
+      },
+      {
+        object: 'util',
+        property: 'error',
+        message: 'Deprecated since Node v0.11.3 in favor of console.error().'
+      },
+      {
+        object: 'util',
+        property: 'isArray',
+        message: 'Deprecated since Node v4.0.0 in favor of util.isArray().'
+      },
+      {
+        object: 'util',
+        property: 'isBoolean',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isBuffer',
+        message: 'Deprecated since Node v4.0.0 in favor of Buffer.isBuffer().'
+      },
+      {
+        object: 'util',
+        property: 'isDate',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isError',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isFunction',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isNull',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isNullOrUndefined',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isNumber',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isObject',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isPrimitive',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isRegExp',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isString',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isSymbol',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'isUndefined',
+        message: 'Deprecated since Node v4.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'log',
+        message: 'Deprecated since Node v6.0.0.'
+      },
+      {
+        object: 'util',
+        property: 'print',
+        message: 'Deprecated since Node v0.11.3 in favor of console.log().'
+      },
+      {
+        object: 'util',
+        property: 'puts',
+        message: 'Deprecated since Node v0.11.3 in favor of console.log().'
+      },
+      {
+        object: 'util',
+        property: '_extend',
+        message: 'Deprecated since Node v6.0.0 in favor of Object.assign().'
+      },
+      {
+        object: '_',
+        property: 'first',
+        message: 'It is just an alias for _.head().'
+      },
+      {
+        object: '_',
+        property: 'each',
+        message: 'It is just an alias for _.forEach().'
+      },
+      {
+        object: '_',
+        property: 'eachRight',
+        message: 'It is just an alias for _.forEachRight().'
+      },
+      {
+        object: '_',
+        property: 'entries',
+        message: 'It is just an alias for _.toPairs().'
+      },
+      {
+        object: '_',
+        property: 'entriesIn',
+        message: 'It is just an alias for _.toPairsIn().'
+      },
+      {
+        object: '_',
+        property: 'extend',
+        message: 'It is just an alias for _.assignIn().'
+      },
+      {
+        object: '_',
+        property: 'extendWith',
+        message: 'It is just an alias for _.assignInWith().'
+      },
+      {
+        object: '_',
+        property: 'toJSON',
+        message: 'It is just an alias for _.value().'
+      },
+      {
+        object: '_',
+        property: 'valueOf',
+        message: 'It is just an alias for _.value().'
+      }
+    ],
     'no-return-assign': [
       'error',
       'always'
@@ -208,9 +366,22 @@ module.exports = {
       }
     ],
     'keyword-spacing': 'error',
+    'line-comment-position': [
+      'error',
+      {
+        position: 'above'
+      }
+    ],
     'linebreak-style': [
       'error',
       'unix'
+    ],
+    'lines-around-directive': [
+      'error',
+      {
+        before: 'never',
+        after: 'always'
+      }
     ],
     'max-lines': [
       'error',
@@ -370,6 +541,7 @@ module.exports = {
     'no-this-before-super': 'error',
     'no-useless-computed-key': 'error',
     'no-useless-rename': 'error',
+    'prefer-numeric-literals': 'error',
     'prefer-rest-params': 'error',
     'require-yield': 'error',
     'rest-spread-spacing': [
