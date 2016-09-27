@@ -1,6 +1,6 @@
 {
   "name": "@shinnn/eslint-config",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "shinnn's ESLint config for both client-side and Node-based projects",
   "repository": "shinnn/eslint-config",
   "scripts": {
@@ -33,7 +33,7 @@
   ],
   "devDependencies": {
     "array-differ": "^2.0.3",
-    "eslint": "^3.5.0",
+    "eslint": "^3.6.1",
     "logalot": "^2.1.0",
     "stringify-object": "^2.4.0",
     "unconfigured-eslint-rules": "^3.0.0"
