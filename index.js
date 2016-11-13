@@ -267,6 +267,7 @@ module.exports = {
       'error',
       'always'
     ],
+    'no-return-await': 'error',
     'no-script-url': 'error',
     'no-self-assign': 'error',
     'no-self-compare': 'error',
