@@ -52,6 +52,7 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'no-sync',
 
     // Stylistic Issues: http://eslint.org/docs/rules/#stylistic-issues
+    'capitalized-comments',
     'consistent-this',
     'func-names',
     'func-style',

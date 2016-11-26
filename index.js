@@ -282,6 +282,7 @@ module.exports = {
     'no-warning-comments': 'error',
     'no-with': 'error',
     radix: 'error',
+    'require-await': 'error',
     'wrap-iife': [
       'error',
       'inside'
