@@ -350,7 +350,6 @@ module.exports = {
       'never'
     ],
     'eol-last': 'error',
-    'func-name-matching': 'error',
     indent: [
       'error',
       2,
