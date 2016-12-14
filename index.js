@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     // Possible Errors: http://eslint.org/docs/rules/#possible-errors
+    'no-await-in-loop': 'error',
     'no-cond-assign': 'error',
     'no-constant-condition': 'error',
     'no-control-regex': 'error',
