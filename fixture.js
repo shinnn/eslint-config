@@ -13,7 +13,7 @@ const itr = {
     let val = 0;
     return {
       next() {
-        return {done: false, value: val++};
+        return {done: false, value: val++, '99999': 99999};
       }
     };
   }

@@ -467,7 +467,10 @@ module.exports = {
     ],
     'quote-props': [
       'error',
-      'as-needed'
+      'as-needed',
+      {
+        numbers: true
+      }
     ],
     quotes: [
       'error',
