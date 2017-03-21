@@ -1,16 +1,21 @@
 /* eslint-disable no-process-exit */
 'use strict';
 
+const {inspect} = require('util');
 const {spawn} = require('child_process');
 
 const arrayDiffer = require('array-differ');
-const log = require('logalot');
-const stringifyObject = require('stringify-object');
+const {error, success} = require('log-symbols');
 const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
 const configId = require.resolve('.');
 
-spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], {stdio: 'inherit'})
+spawn('node', [
+  'node_modules/eslint/bin/eslint.js',
+  `--config=${configId}`,
+  'format=codeframe',
+  '.'
+], {stdio: 'inherit'})
 .on('exit', code => {
   if (code !== 0) {
     process.exit(code);
@@ -74,6 +79,8 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'no-plusplus',
     'no-tabs',
     'no-ternary',
+    // because 'curly' is enabled
+    'nonblock-statement-body-position',
     'object-curly-newline',
     // because 'one-var' is already disallowed
     'one-var-declaration-per-line',
@@ -91,14 +98,9 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
     'object-shorthand',
     'prefer-arrow-callback',
     'prefer-const',
+    'prefer-destructuring',
     'prefer-spread',
-    'prefer-reflect',
-    'prefer-template',
-
-    // Deprecated http://eslint.org/docs/rules/#deprecated
-    'no-native-reassign',
-    'no-negated-in-lhs',
-    'no-spaced-func'
+    'prefer-template'
   ];
   const actuallyUnconfigured = unconfiguredESLintRules({configFile: configId});
   const unexpected = {
@@ -111,9 +113,13 @@ spawn('node', ['node_modules/eslint/bin/eslint.js', '--config', configId, '.'], 
       return;
     }
 
-    log.error(`These rules are unexpectedly ${key}:\n${stringifyObject(unexpected[key], {indent: '  '})}`);
+    console.error(`${error} These rules are unexpectedly ${key}:\n${
+      inspect(unexpected[key], {
+        breakLength: 0
+      })
+    }\n`);
     process.exit(1);
   });
 
-  log.success('Rules are configured as you expected.');
+  console.log(`${success} Rules are configured as you expected.`);
 });
