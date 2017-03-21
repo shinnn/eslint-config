@@ -1,6 +1,6 @@
 {
   "name": "@shinnn/eslint-config",
-  "version": "3.3.6",
+  "version": "3.4.0",
   "description": "shinnn's ESLint config for both client-side and Node-based projects",
   "repository": "shinnn/eslint-config",
   "scripts": {
