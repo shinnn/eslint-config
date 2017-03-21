@@ -28,6 +28,7 @@ spawn('node', [
     'valid-jsdoc',
 
     // Best Practices: http://eslint.org/docs/rules/#best-practices
+    'complexity',
     'default-case',
     'no-empty-function',
     // because 'no-labels' is already enabled
