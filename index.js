@@ -13,6 +13,7 @@ module.exports = {
   rules: {
     // Possible Errors: http://eslint.org/docs/rules/#possible-errors
     'no-await-in-loop': 'error',
+    'no-compare-neg-zero': 'error',
     'no-cond-assign': 'error',
     'no-constant-condition': 'error',
     'no-control-regex': 'error',
@@ -282,6 +283,7 @@ module.exports = {
     'no-void': 'error',
     'no-warning-comments': 'error',
     'no-with': 'error',
+    'prefer-promise-reject-errors': 'error',
     radix: 'error',
     'require-await': 'error',
     'wrap-iife': [
@@ -422,6 +424,7 @@ module.exports = {
     'no-array-constructor': 'error',
     'no-lonely-if': 'error',
     'no-mixed-spaces-and-tabs': 'error',
+    'no-multi-assign': 'error',
     'no-multiple-empty-lines': [
       'error',
       {
@@ -518,6 +521,7 @@ module.exports = {
         }
       }
     ],
+    'template-tag-spacing': 'error',
     'unicode-bom': [
       'error',
       'never'
