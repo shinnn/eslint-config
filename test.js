@@ -95,7 +95,6 @@ spawn('node', [
     'arrow-body-style',
     'no-confusing-arrow',
     'no-var',
-    'no-useless-constructor',
     'object-shorthand',
     'prefer-arrow-callback',
     'prefer-const',

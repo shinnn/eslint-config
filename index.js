@@ -547,6 +547,7 @@ module.exports = {
     'no-new-symbol': 'error',
     'no-this-before-super': 'error',
     'no-useless-computed-key': 'error',
+    'no-useless-constructor': 'error',
     'no-useless-rename': 'error',
     'prefer-numeric-literals': 'error',
     'prefer-rest-params': 'error',
