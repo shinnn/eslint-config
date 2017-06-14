@@ -46,7 +46,7 @@ window
 .count = Boolean(new Class(0b0).x);
 
 window
-  .count = window.count ? Number(createId.next().value) : null;
+.count = window.count ? Number(createId.next().value) : null;
 
 var encoding = ['utf8'].filter(() => typeof this === 'string');
 
@@ -62,7 +62,7 @@ var encoding = ['utf8'].filter(() => typeof this === 'string');
     / {1}/
   ];
 
-  var obj = {'_a.r/r': [!!{fn}, new Array(1), arr]};
+  var obj = {'_a.r/r': [!!{fn}, new Array(1), arr, 0, 1, 2, 3, 4, Buffer.from('5'), 0x6]};
   var getterName = 'g.e.t.t.e.r';
 
   obj.push({

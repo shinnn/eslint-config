@@ -2,7 +2,6 @@
 
 [![NPM version](https://img.shields.io/npm/v/@shinnn%2feslint-config.svg)](https://www.npmjs.com/package/@shinnn/eslint-config)
 [![Build Status](https://travis-ci.org/shinnn/eslint-config.svg?branch=master)](https://travis-ci.org/shinnn/eslint-config)
-[![devDependencies Status](https://david-dm.org/shinnn/eslint-config/dev-status.svg)](https://david-dm.org/shinnn/eslint-config?type=dev)
 
 [shinnn](https://github.com/shinnn)'s [ESLint sharable config](http://eslint.org/docs/developer-guide/shareable-configs.html) for both [client-side](https://en.wikipedia.org/wiki/Client-side_scripting) and [Node](https://nodejs.org/)-based projects
 
@@ -31,6 +30,6 @@ cli.executeOnText('var foo=true;'); //=> {results: [ ... ], errorCount: ... }
 
 ## License
 
-Copyright (c) 2015 - 2016 [Shinnosuke Watanabe](https://github.com/shinnn)
+Copyright (c) 2015 - 2017 [Shinnosuke Watanabe](https://github.com/shinnn)
 
 Licensed under [the MIT License](./LICENSE).

@@ -58,6 +58,7 @@ spawn('node', [
     'no-sync',
 
     // Stylistic Issues: http://eslint.org/docs/rules/#stylistic-issues
+    'array-element-newline',
     'capitalized-comments',
     'consistent-this',
     'func-name-matching',
@@ -71,8 +72,6 @@ spawn('node', [
     'max-len',
     'max-statements',
     'multiline-ternary',
-    'newline-after-var',
-    'newline-before-return',
     'no-bitwise',
     'no-inline-comments',
     'no-mixed-operators',

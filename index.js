@@ -12,6 +12,7 @@ module.exports = {
   },
   rules: {
     // Possible Errors: http://eslint.org/docs/rules/#possible-errors
+    'for-direction': 'error',
     'no-await-in-loop': 'error',
     'no-compare-neg-zero': 'error',
     'no-cond-assign': 'error',
@@ -312,11 +313,18 @@ module.exports = {
       'error',
       true
     ],
+    'no-buffer-constructor': 'error',
     'no-new-require': 'error',
     'no-path-concat': 'error',
     'no-process-exit': 'error',
 
     // Stylistic Issues: http://eslint.org/docs/rules/#stylistic-issues
+    'array-bracket-newline': [
+      'error',
+      {
+        multiline: true
+      }
+    ],
     'array-bracket-spacing': [
       'error',
       'never'
@@ -353,6 +361,7 @@ module.exports = {
       'error',
       2,
       {
+        MemberExpression: 0,
         SwitchCase: 1
       }
     ],
@@ -377,13 +386,6 @@ module.exports = {
     'linebreak-style': [
       'error',
       'unix'
-    ],
-    'lines-around-directive': [
-      'error',
-      {
-        before: 'never',
-        after: 'always'
-      }
     ],
     'max-lines': [
       'error',
@@ -464,6 +466,24 @@ module.exports = {
       'error',
       'never'
     ],
+    'padding-line-between-statements': [
+      'error',
+      {
+        blankLine: 'never',
+        prev: '*',
+        next: 'directive'
+      },
+      {
+        blankLine: 'always',
+        prev: 'directive',
+        next: '*'
+      },
+      {
+        blankLine: 'always',
+        prev: '*',
+        next: 'class'
+      }
+    ],
     'quote-props': [
       'error',
       'as-needed',
@@ -486,6 +506,7 @@ module.exports = {
       'error',
       'always'
     ],
+    'semi-style': 'error',
     'space-before-blocks': [
       'error',
       'always'
@@ -517,6 +538,7 @@ module.exports = {
         }
       }
     ],
+    'switch-colon-spacing': 'error',
     'template-tag-spacing': 'error',
     'unicode-bom': [
       'error',
