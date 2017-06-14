@@ -93,12 +93,7 @@ spawn('node', [
     // ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
     'arrow-body-style',
     'no-confusing-arrow',
-    'no-var',
-    'object-shorthand',
-    'prefer-arrow-callback',
-    'prefer-const',
     'prefer-destructuring',
-    'prefer-spread',
     'prefer-template'
   ];
   const actuallyUnconfigured = unconfiguredESLintRules({configFile: configId});

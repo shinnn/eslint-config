@@ -5,8 +5,8 @@
 // Line comment
 'use strict';
 
-var fs = require('fs');
-var {resolve} = require('path');
+const fs = require('fs');
+const {resolve} = require('path');
 
 const itr = {
   [Symbol.iterator]() {
@@ -25,7 +25,7 @@ class Class {
     this.y = y;
   }
   method() {
-    for (var num of itr) {
+    for (const num of itr) {
       if (num > 100) {
         break;
       }
@@ -35,7 +35,7 @@ class Class {
 }
 
 function createId() {
-  var index = 0;
+  let index = 0;
   while (index < 100000) {
     index++;
   }
@@ -49,22 +49,22 @@ window
 .count = window.count ? Number(createId.next().value) : 'strstr' +
                                                         'str';
 
-var encoding = ['utf8'].filter(() => typeof this === 'string');
+const encoding = ['utf8'].filter(() => typeof this === 'string');
 
 (function() {
-  var fn = console.log.bind(window.count);
+  const fn = console.log.bind(window.count);
   fn(...[1, 2, 3]);
 
-  var worker = new Worker('task.js');
-  var arr = [
+  const worker = new Worker('task.js');
+  const arr = [
     '\u00A9',
     'first\n' +
     'second',
     / {1}/
   ];
 
-  var obj = {'_a.r/r': [!!{fn}, new Array(1), arr, 0, 1, 2, 3, 4, Buffer.from('5'), 0x6]};
-  var getterName = 'g.e.t.t.e.r';
+  const obj = {'_a.r/r': [!!{fn}, new Array(1), arr, 0, 1, 2, 3, 4, Buffer.from('5'), 0x6]};
+  const getterName = 'g.e.t.t.e.r';
 
   obj.push({
     set a(value) {
@@ -75,7 +75,7 @@ var encoding = ['utf8'].filter(() => typeof this === 'string');
     }
   });
 
-  for (var prop in obj) {
+  for (const prop in obj) {
     if (Object.prototype.hasOwnProperty.call(obj, prop)) {
       switch (window.count) {
         case 1:
@@ -90,7 +90,7 @@ var encoding = ['utf8'].filter(() => typeof this === 'string');
 })();
 
 module.exports = function fn() {
-  fs.readFile(resolve(__dirname, 'foo/bar/baz/qux.txt'), {encoding}, function(err, contents) {
+  fs.readFile(resolve(__dirname, 'foo/bar/baz/qux.txt'), {encoding}, (err, contents) => {
     if (err) {
       throw err;
     }
