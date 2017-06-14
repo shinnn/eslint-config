@@ -46,7 +46,8 @@ window
 .count = Boolean(new Class(0b0).x);
 
 window
-.count = window.count ? Number(createId.next().value) : null;
+.count = window.count ? Number(createId.next().value) : 'strstr' +
+                                                        'str';
 
 var encoding = ['utf8'].filter(() => typeof this === 'string');
 
