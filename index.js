@@ -3,12 +3,21 @@ module.exports = {
     ecmaVersion: 8,
     sourceType: 'module'
   },
+  plugins: [
+    'no-use-extend-native',
+    'node'
+  ],
   env: {
     browser: true,
     node: true,
     worker: true,
     serviceworker: true,
     es6: true
+  },
+  settings: {
+    node: {
+      allowModules: ['electron']
+    }
   },
   rules: {
     // Possible Errors: http://eslint.org/docs/rules/#possible-errors
@@ -589,6 +598,21 @@ module.exports = {
         before: true,
         after: false
       }
-    ]
+    ],
+
+    // eslint-plugin-no-use-extend-native https://github.com/dustinspecker/eslint-plugin-no-use-extend-native
+    'no-use-extend-native/no-use-extend-native': 'error',
+
+    // eslint-plugin-node https://github.com/mysticatea/eslint-plugin-node
+    'node/no-extraneous-import': 'error',
+    'node/no-extraneous-require': 'error',
+    'node/no-missing-import': 'error',
+    'node/no-missing-require': 'error',
+    'node/no-unpublished-bin': 'error',
+    'node/no-unpublished-import': 'error',
+    'node/no-unpublished-require': 'error',
+    'node/process-exit-as-throw': 'error',
+    'node/shebang': 'error',
+    'node/no-deprecated-api': 'error'
   }
 };
