@@ -13,7 +13,7 @@ const configId = require.resolve('.');
 spawn('node', [
   'node_modules/eslint/bin/eslint.js',
   `--config=${configId}`,
-  'format=codeframe',
+  '--format=codeframe',
   '.'
 ], {stdio: 'inherit'})
 .on('exit', code => {
@@ -66,7 +66,6 @@ spawn('node', [
     'func-style',
     'id-length',
     'id-match',
-    'jsx-quotes',
     'lines-around-comment',
     'max-depth',
     'max-len',

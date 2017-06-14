@@ -269,6 +269,10 @@ module.exports = {
         SwitchCase: 1
       }
     ],
+    'jsx-quotes': [
+      'error',
+      'prefer-single'
+    ],
     'id-blacklist': [
       'error',
       'shit'
