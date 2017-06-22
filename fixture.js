@@ -8,14 +8,19 @@
 const fs = require('fs');
 const {resolve} = require('path');
 
-const itr = {
-  [Symbol.iterator]() {
-    let val = 0;
-    return {
+let val = 0;
+
+const obj = {
+  *[Symbol.iterator]() {
+    yield {
       next() {
         return {done: false, value: val++, '99999': 99999};
       }
     };
+  },
+  method: async () => {
+    const {blob} = await fetch('https://example.org');
+    return blob();
   }
 };
 
@@ -25,7 +30,7 @@ class Class {
     this.y = y;
   }
   method() {
-    for (const num of itr) {
+    for (const num of obj) {
       if (num > 100) {
         break;
       }
@@ -63,10 +68,10 @@ const encoding = ['utf8'].filter(() => typeof this === 'string');
     / {1}/
   ];
 
-  const obj = {'_a.r/r': [!!{fn}, new Array(1), arr, 0, 1, 2, 3, 4, Buffer.from('5'), 0x6]};
+  const list = {'_a.r/r': [!!{fn}, new Array(1), arr, 0, 1, 2, 3, 4, Buffer.from('5'), 0x6]};
   const getterName = 'g.e.t.t.e.r';
 
-  obj.push({
+  list.push({
     set a(value) {
       this.v = true;
     },

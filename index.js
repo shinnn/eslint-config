@@ -421,7 +421,11 @@ module.exports = {
     ],
     'space-before-function-paren': [
       'error',
-      'never'
+      {
+        anonymous: 'never',
+        asyncArrow: 'always',
+        named: 'never'
+      }
     ],
     'space-in-parens': [
       'error',
