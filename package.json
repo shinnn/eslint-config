@@ -33,7 +33,9 @@
   ],
   "dependencies": {
     "eslint-plugin-no-use-extend-native": "^0.3.12",
-    "eslint-plugin-node": "^5.1.0"
+    "eslint-plugin-node": "^5.1.0",
+    "mock-require": "^2.0.2",
+    "resolve-cwd": "^2.0.0"
   },
   "devDependencies": {
     "array-differ": "^2.0.3",
