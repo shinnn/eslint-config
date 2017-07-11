@@ -33,11 +33,11 @@
   ],
   "dependencies": {
     "eslint-plugin-no-use-extend-native": "^0.3.12",
-    "eslint-plugin-node": "^5.0.0"
+    "eslint-plugin-node": "^5.1.0"
   },
   "devDependencies": {
     "array-differ": "^2.0.3",
-    "eslint": "^4.0.0",
+    "eslint": "^4.2.0",
     "log-symbols": "^1.0.2",
     "unconfigured-eslint-rules": "^5.0.0"
   }
