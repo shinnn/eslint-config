@@ -1,9 +1,6 @@
 'use strict';
 
-const resolveCwdSilent = require('resolve-cwd').silent;
-const mockRequire = require('mock-require');
-
-const config = {
+module.exports = {
   parserOptions: {
     ecmaVersion: 8,
     sourceType: 'module'
@@ -538,13 +535,3 @@ const config = {
     'node/no-deprecated-api': 'error'
   }
 };
-
-for (const plugin of config.plugins) {
-  const pluginFullname = `eslint-plugin-${plugin}`;
-
-  if (resolveCwdSilent(pluginFullname) === null) {
-    mockRequire(pluginFullname, require(pluginFullname));
-  }
-}
-
-module.exports = config;
