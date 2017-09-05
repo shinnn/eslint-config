@@ -267,6 +267,14 @@ module.exports = {
       'never'
     ],
     'eol-last': 'error',
+    'function-paren-newline': [
+      'error',
+      'never'
+    ],
+    'id-blacklist': [
+      'error',
+      'shit'
+    ],
     indent: [
       'error',
       2,
@@ -278,10 +286,6 @@ module.exports = {
     'jsx-quotes': [
       'error',
       'prefer-single'
-    ],
-    'id-blacklist': [
-      'error',
-      'shit'
     ],
     'key-spacing': [
       'error',
