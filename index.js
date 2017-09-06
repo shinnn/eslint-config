@@ -267,10 +267,7 @@ module.exports = {
       'never'
     ],
     'eol-last': 'error',
-    'function-paren-newline': [
-      'error',
-      'never'
-    ],
+    'function-paren-newline': 'error',
     'id-blacklist': [
       'error',
       'shit'

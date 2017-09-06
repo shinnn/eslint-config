@@ -34,7 +34,10 @@ class Class {
       if (num > 100) {
         break;
       }
-      console.log(num ** this.z);
+      console.log(
+        num ** this.z,
+        Symbol('Hi')
+      );
     }
   }
 }
