@@ -70,6 +70,7 @@ spawn('node', [
     'max-depth',
     'max-len',
     'max-statements',
+    'multiline-comment-style',
     'multiline-ternary',
     'no-bitwise',
     'no-inline-comments',

@@ -37,8 +37,8 @@
   },
   "devDependencies": {
     "array-differ": "^2.0.3",
-    "eslint": "^4.6.1",
-    "log-symbols": "^2.0.0",
+    "eslint": "^4.9.0",
+    "log-symbols": "^2.1.0",
     "unconfigured-eslint-rules": "^5.0.0"
   }
 }

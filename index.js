@@ -302,6 +302,7 @@ module.exports = {
       'error',
       'unix'
     ],
+    'lines-between-class-members': 'error',
     'max-lines': [
       'error',
       5000

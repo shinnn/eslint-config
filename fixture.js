@@ -29,6 +29,7 @@ class Class {
     this.x = x;
     this.y = y;
   }
+
   method() {
     for (const num of obj) {
       if (num > 100) {
