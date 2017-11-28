@@ -272,6 +272,7 @@ module.exports = {
       'error',
       'shit'
     ],
+    'implicit-arrow-linebreak': 'error',
     indent: [
       'error',
       2,
