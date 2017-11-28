@@ -467,6 +467,13 @@ module.exports = {
     ],
 
     // ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
+    'arrow-body-style': [
+      'error',
+      'as-needed',
+      {
+        requireReturnForObjectLiteral: true
+      }
+    ],
     'arrow-parens': [
       'error',
       'as-needed'
@@ -501,9 +508,16 @@ module.exports = {
       }
     ],
     'prefer-const': 'error',
+    'prefer-destructuring': [
+      'error',
+      {
+        array: false
+      }
+    ],
     'prefer-numeric-literals': 'error',
     'prefer-rest-params': 'error',
     'prefer-spread': 'error',
+    'prefer-template': 'error',
     'require-yield': 'error',
     'rest-spread-spacing': [
       'error',

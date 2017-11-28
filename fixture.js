@@ -72,6 +72,9 @@ const encoding = ['utf8'].filter(() => typeof this === 'string');
     / {1}/
   ];
 
+  const second = arr[1];
+  console.log(second);
+
   const list = {'_a.r/r': [!!{fn}, new Array(1), arr, 0, 1, 2, 3, 4, Buffer.from('5'), 0x6]};
   const getterName = 'g.e.t.t.e.r';
 

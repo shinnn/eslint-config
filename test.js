@@ -91,10 +91,7 @@ spawn('node', [
     'wrap-regex',
 
     // ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
-    'arrow-body-style',
-    'no-confusing-arrow',
-    'prefer-destructuring',
-    'prefer-template'
+    'no-confusing-arrow'
   ];
   const actuallyUnconfigured = unconfiguredESLintRules({configFile: configId});
   const unexpected = {
@@ -102,18 +99,15 @@ spawn('node', [
     configured: arrayDiffer(explicitlyUnconfigured, actuallyUnconfigured)
   };
 
-  Object.keys(unexpected).forEach(key => {
-    if (unexpected[key].length === 0) {
-      return;
+  for (const [key, rules] of Object.entries(unexpected)) {
+    if (rules.length === 0) {
+      continue;
     }
 
-    console.error(`${error} These rules are unexpectedly ${key}:\n${
-      inspect(unexpected[key], {
-        breakLength: 0
-      })
-    }\n`);
+    console.error(`${error} These rules are unexpectedly ${key}:\n${inspect(rules, {breakLength: 0})}\n`);
+
     process.exit(1);
-  });
+  }
 
   console.log(`${success} Rules are configured as you expected.`);
 });
