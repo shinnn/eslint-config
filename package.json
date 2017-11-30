@@ -1,44 +1,44 @@
 {
-  "name": "@shinnn/eslint-config",
-  "version": "5.0.0-0",
-  "description": "shinnn's ESLint config for both client-side and Node.js-based projects",
-  "repository": "shinnn/eslint-config",
-  "scripts": {
-    "test": "node test.js"
-  },
-  "license": "ISC",
-  "publishConfig": {
-    "access": "public"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "rc",
-    "setting",
-    "config",
-    "configuration",
-    "json",
-    "validate",
-    "lint",
-    "linter",
-    "eslint",
-    "env",
-    "rule",
-    "syntax",
-    "style",
-    "window",
-    "document",
-    "personal"
-  ],
-  "dependencies": {
-    "eslint-plugin-no-use-extend-native": "^0.3.12",
-    "eslint-plugin-node": "^5.2.1"
-  },
-  "devDependencies": {
-    "array-differ": "^2.0.3",
-    "eslint": "^4.12.0",
-    "log-symbols": "^2.1.0",
-    "unconfigured-eslint-rules": "^5.0.0"
-  }
+	"name": "@shinnn/eslint-config",
+	"version": "5.0.0-0",
+	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
+	"repository": "shinnn/eslint-config",
+	"scripts": {
+		"test": "node test.js"
+	},
+	"license": "ISC",
+	"publishConfig": {
+		"access": "public"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"rc",
+		"setting",
+		"config",
+		"configuration",
+		"json",
+		"validate",
+		"lint",
+		"linter",
+		"eslint",
+		"env",
+		"rule",
+		"syntax",
+		"style",
+		"window",
+		"document",
+		"personal"
+	],
+	"dependencies": {
+		"eslint-plugin-no-use-extend-native": "^0.3.12",
+		"eslint-plugin-node": "^5.2.1"
+	},
+	"devDependencies": {
+		"array-differ": "^2.0.3",
+		"eslint": "^4.12.0",
+		"log-symbols": "^2.1.0",
+		"unconfigured-eslint-rules": "^5.0.0"
+	}
 }
