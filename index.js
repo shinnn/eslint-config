@@ -192,7 +192,6 @@ module.exports = {
 		'no-with': 'error',
 		'prefer-promise-reject-errors': 'error',
 		radix: 'error',
-		'require-await': 'error',
 		'wrap-iife': [
 			'error',
 			'inside'

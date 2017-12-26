@@ -42,6 +42,7 @@ spawn('node', [
 		'vars-on-top',
 		// because 'no-labels' is already enabled
 		'no-unused-labels',
+		'require-await',
 
 		// Strict Mode: http://eslint.org/docs/rules/#strict-mode
 		'strict',
