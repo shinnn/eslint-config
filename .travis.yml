@@ -1,6 +1,3 @@
-dist: trusty
-git:
-  depth: 1
 branches:
   except: /^v\d/
 language: node_js
