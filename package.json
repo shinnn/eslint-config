@@ -4,7 +4,7 @@
 	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
 	"repository": "shinnn/eslint-config",
 	"scripts": {
-		"test": "node test.js"
+		"test": "nyc --reporter=html --reporter=text node test/test.js"
 	},
 	"license": "ISC",
 	"publishConfig": {
@@ -39,6 +39,7 @@
 		"array-differ": "^2.0.3",
 		"eslint": "^4.14.0",
 		"log-symbols": "^2.1.0",
+		"nyc": "^11.4.1",
 		"unconfigured-eslint-rules": "^5.0.0"
 	}
 }
