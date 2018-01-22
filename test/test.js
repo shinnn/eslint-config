@@ -2,24 +2,43 @@
 'use strict';
 
 const {inspect} = require('util');
+const {join} = require('path');
 const {spawn} = require('child_process');
 
 const arrayDiffer = require('array-differ');
-const {error, success} = require('log-symbols');
+const {cyan, red} = require('chalk');
+const ora = require('ora');
+const pEvent = require('p-event');
 const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
-const configId = require.resolve('.');
-
-spawn('node', [
-	'node_modules/eslint/bin/eslint.js',
-	`--config=${configId}`,
+const args = [
+	join(__dirname, '..', 'node_modules', 'eslint', 'bin', 'eslint.js'),
+	'--ext=.js,.mjs',
 	'--format=codeframe',
 	'.'
-], {stdio: 'inherit'})
-.on('exit', code => {
+];
+
+async function runEslint(dir) {
+	const spinner = ora(`Running ESLint in ${cyan(dir)}`).start();
+
+	const code = await pEvent(spawn('node', args, {
+		stdio: 'inherit',
+		cwd: join(__dirname, dir)
+	}), 'exit');
+
 	if (code !== 0) {
+		spinner.fail();
 		process.exit(code);
 	}
+
+	spinner.succeed();
+}
+
+(async () => {
+	await runEslint('./fixtures/');
+	await runEslint('./fixtures-rollup-config-module/');
+
+	const spinner = ora('Checking if the rules are configured as you expected').start();
 
 	const explicitlyUnconfigured = [
 		// Possible Errors: http://eslint.org/docs/rules/#possible-errors
@@ -94,7 +113,7 @@ spawn('node', [
 		// ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
 		'no-confusing-arrow'
 	];
-	const actuallyUnconfigured = unconfiguredESLintRules({configFile: configId});
+	const actuallyUnconfigured = unconfiguredESLintRules({configFile: require.resolve('..')});
 	const unexpected = {
 		unconfigured: arrayDiffer(actuallyUnconfigured, explicitlyUnconfigured),
 		configured: arrayDiffer(explicitlyUnconfigured, actuallyUnconfigured)
@@ -105,10 +124,11 @@ spawn('node', [
 			continue;
 		}
 
-		console.error(`${error} These rules are unexpectedly ${key}:\n${inspect(rules, {breakLength: 0})}\n`);
+		spinner.fail();
+		console.error(red(`These rules are unexpectedly ${key}:\n${inspect(rules, {breakLength: 0})}`));
 
 		process.exit(1);
 	}
 
-	console.log(`${success} Rules are configured as you expected.`);
-});
+	spinner.succeed();
+})();

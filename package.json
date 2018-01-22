@@ -4,6 +4,7 @@
 	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
 	"repository": "shinnn/eslint-config",
 	"scripts": {
+		"pretest": "eslint --format=codeframe .",
 		"test": "nyc --reporter=html --reporter=text node test/test.js"
 	},
 	"license": "ISC",
@@ -33,13 +34,22 @@
 	],
 	"dependencies": {
 		"eslint-plugin-no-use-extend-native": "^0.3.12",
-		"eslint-plugin-node": "^5.2.1"
+		"eslint-plugin-node": "^5.2.1",
+		"is-resolvable": "^1.1.0"
 	},
 	"devDependencies": {
 		"array-differ": "^2.0.3",
-		"eslint": "^4.14.0",
-		"log-symbols": "^2.1.0",
+		"chalk": "^2.3.0",
+		"eslint": "^4.16.0",
 		"nyc": "^11.4.1",
+		"ora": "^1.3.0",
+		"p-event": "^1.3.0",
 		"unconfigured-eslint-rules": "^5.0.0"
-	}
+	},
+	"eslintConfig": {
+		"extends": "./index.js"
+	},
+	"eslintIgnore": [
+		"test/fixtures*"
+	]
 }

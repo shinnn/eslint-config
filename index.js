@@ -1,5 +1,9 @@
 'use strict';
 
+const join = require('path').join;
+
+const isResolvable = require('is-resolvable');
+
 module.exports = {
 	parserOptions: {
 		ecmaVersion: 8,
@@ -551,3 +555,25 @@ module.exports = {
 		'node/no-deprecated-api': 'error'
 	}
 };
+// https://github.com/shinnn/rollup-config-module
+if (isResolvable('rollup-config-module', {
+	paths: [join(process.cwd(), 'node_modules')]
+})) {
+	module.exports.overrides.push({
+		files: [
+			'index.js',
+			'index.mjs'
+		],
+		rules: {
+			'no-var': 'off',
+			'object-shorthand': 'off',
+			'prefer-arrow-callback': 'off',
+			'prefer-const': 'off',
+			'prefer-destructuring': 'off',
+			'prefer-numeric-literals': 'off',
+			'prefer-rest-params': 'off',
+			'prefer-spread': 'off',
+			'prefer-template': 'off'
+		}
+	});
+}
