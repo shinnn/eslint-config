@@ -553,8 +553,19 @@ module.exports = {
 		'node/process-exit-as-throw': 'error',
 		'node/shebang': 'error',
 		'node/no-deprecated-api': 'error'
-	}
+	},
+	overrides: [
+		{
+			files: 'coverage/**/*.js',
+			rules: {}
+		}
+	]
 };
+
+for (const rule of Object.keys(module.exports.rules)) {
+	module.exports.overrides[0].rules[rule] = 'off';
+}
+
 // https://github.com/shinnn/rollup-config-module
 if (isResolvable('rollup-config-module', {
 	paths: [join(process.cwd(), 'node_modules')]
