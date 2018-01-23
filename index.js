@@ -558,6 +558,7 @@ module.exports = {
 		{
 			files: '{coverage,dest,dist,t{,e}mp,vendor}/**/*.{,m}js',
 			rules: {},
+			parser: require.resolve('./noop-parser.js')
 		}
 	]
 };
