@@ -556,8 +556,8 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: 'coverage/**/*.js',
-			rules: {}
+			files: '{coverage,dest,dist,t{,e}mp,vendor}/**/*.{,m}js',
+			rules: {},
 		}
 	]
 };
