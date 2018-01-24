@@ -1,0 +1,7 @@
+{
+	"private": true,
+	"bin": {
+		"cli": "cli.js",
+		"another-cli": "another-cli.js"
+	}
+}

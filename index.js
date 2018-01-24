@@ -1,8 +1,13 @@
 'use strict';
 
-const join = require('path').join;
+const pathLib = require('path');
 
+const join = pathLib.join;
+const resolve = pathLib.resolve;
+
+const attempt = require('lodash/attempt');
 const isResolvable = require('is-resolvable');
+const values = require('lodash/fp/values');
 
 module.exports = {
 	parserOptions: {
@@ -565,6 +570,17 @@ module.exports = {
 
 for (const rule of Object.keys(module.exports.rules)) {
 	module.exports.overrides[0].rules[rule] = 'off';
+}
+
+const bin = attempt(require, resolve('package.json')).bin;
+
+if (bin !== undefined) {
+	module.exports.overrides.push({
+		files: typeof bin === 'string' ? bin : values(bin),
+		rules: {
+			'no-process-exit': 'off'
+		}
+	});
 }
 
 // https://github.com/shinnn/rollup-config-module

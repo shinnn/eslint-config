@@ -36,7 +36,8 @@
 		"eslint-plugin-no-use-extend-native": "^0.3.12",
 		"eslint-plugin-node": "^5.2.1",
 		"espree": "^3.5.2",
-		"is-resolvable": "^1.1.0"
+		"is-resolvable": "^1.1.0",
+		"lodash": "^4.17.4"
 	},
 	"devDependencies": {
 		"array-differ": "^2.0.3",

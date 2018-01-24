@@ -36,6 +36,8 @@ async function runEslint(dir) {
 
 (async () => {
 	await runEslint('./fixtures/');
+	await runEslint('./fixtures-single-cli/');
+	await runEslint('./fixtures-multiple-cli/');
 	await runEslint('./fixtures-rollup-config-module/');
 
 	const spinner = ora('Checking if the rules are configured as you expected').start();
