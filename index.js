@@ -11,7 +11,7 @@ const values = require('lodash/fp/values');
 
 module.exports = {
 	parserOptions: {
-		ecmaVersion: 8,
+		ecmaVersion: 9,
 		sourceType: 'module'
 	},
 	plugins: [
