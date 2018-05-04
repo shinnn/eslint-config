@@ -5,7 +5,7 @@
 // Line comment
 'use strict';
 
-const fs = require('fs');
+const {readFile} = require('fs');
 const {resolve} = require('path');
 
 let val = 0;
@@ -102,7 +102,7 @@ const encoding = ['utf8'].filter(() => typeof this === 'string');
 })();
 
 module.exports = function fn() {
-	fs.readFile(resolve(__dirname, 'foo/bar/baz/qux.txt'), {encoding}, (err, contents) => {
+	readFile(resolve(__dirname, 'foo/bar/baz/qux.txt'), {encoding}, (err, contents) => {
 		if (err) {
 			throw err;
 		}

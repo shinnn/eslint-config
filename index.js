@@ -29,6 +29,8 @@ module.exports = {
 		node: {
 			allowModules: [
 				'electron',
+				// Remove this line after https://github.com/browserify/resolve/pull/160 is merged
+				'fs',
 				'vscode'
 			]
 		}
