@@ -5,7 +5,7 @@ const {inspect} = require('util');
 const {join} = require('path');
 const {spawn} = require('child_process');
 
-const arrayDiffer = require('array-differ');
+const difference = require('lodash/difference');
 const {cyan, red} = require('chalk');
 const ora = require('ora');
 const pEvent = require('p-event');
@@ -117,8 +117,8 @@ async function runEslint(dir) {
 	];
 	const actuallyUnconfigured = unconfiguredESLintRules({configFile: require.resolve('..')});
 	const unexpected = {
-		unconfigured: arrayDiffer(actuallyUnconfigured, explicitlyUnconfigured),
-		configured: arrayDiffer(explicitlyUnconfigured, actuallyUnconfigured)
+		unconfigured: difference(actuallyUnconfigured, explicitlyUnconfigured),
+		configured: difference(explicitlyUnconfigured, actuallyUnconfigured)
 	};
 
 	for (const [key, rules] of Object.entries(unexpected)) {
