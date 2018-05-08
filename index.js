@@ -224,7 +224,12 @@ module.exports = {
 		'no-shadow': 'error',
 		'no-undef-init': 'error',
 		'no-undef': 'error',
-		'no-unused-vars': 'error',
+		'no-unused-vars': [
+			'error',
+			{
+				varsIgnorePattern: '^_$'
+			}
+		],
 		'no-use-before-define': 'error',
 
 		// Node.js and CommonJS: http://eslint.org/docs/rules/#nodejs-and-commonjs

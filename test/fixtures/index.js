@@ -19,8 +19,8 @@ const obj = {
 		};
 	},
 	method: async () => {
-		const {blob} = await fetch('https://example.org');
-		return blob();
+		const [_, x] = await (await fetch('https://example.org/some/api')).json();
+		return x;
 	}
 };
 
