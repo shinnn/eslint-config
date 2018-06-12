@@ -113,9 +113,7 @@ module.exports = function fn() {
 		try {
 			JSON.parse(contents);
 			isValidJson = true;
-		} catch (e) {
-			isValidJson = false;
-		}
+		} catch (e) {}
 
 		if (!isValidJson) {
 			console.log('The file is not a valid JSON.');

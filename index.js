@@ -47,7 +47,12 @@ module.exports = {
 		'no-dupe-keys': 'error',
 		'no-duplicate-case': 'error',
 		'no-empty-character-class': 'error',
-		'no-empty': 'error',
+		'no-empty': [
+			'error',
+			{
+				allowEmptyCatch: true
+			}
+		],
 		'no-ex-assign': 'error',
 		'no-extra-boolean-cast': 'error',
 		'no-extra-parens': [
