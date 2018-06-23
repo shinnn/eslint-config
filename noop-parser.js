@@ -1,6 +1,6 @@
 'use strict';
 
-const parse = require('espree').parse;
+const {parse} = require('espree');
 
 const emptyAst = parse('', {
 	loc: true,

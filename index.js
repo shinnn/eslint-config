@@ -1,9 +1,6 @@
 'use strict';
 
-const pathLib = require('path');
-
-const join = pathLib.join;
-const resolve = pathLib.resolve;
+const {join, resolve} = require('path');
 
 const attempt = require('lodash/attempt');
 const isResolvable = require('is-resolvable');
@@ -582,7 +579,7 @@ for (const rule of Object.keys(module.exports.rules)) {
 	module.exports.overrides[0].rules[rule] = 'off';
 }
 
-const bin = attempt(require, resolve('package.json')).bin;
+const {bin} = attempt(require, resolve('package.json'));
 
 if (bin !== undefined) {
 	module.exports.overrides.push({
