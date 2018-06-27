@@ -19,8 +19,12 @@ const obj = {
 		};
 	},
 	method: async () => {
-		const [_, x] = await (await fetch('https://example.org/some/api')).json();
-		return x;
+		try {
+			const [_, x] = await (await fetch('https://example.org/some/api')).json();
+			return x;
+		} catch {}
+
+		return null;
 	}
 };
 
