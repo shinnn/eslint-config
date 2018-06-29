@@ -90,6 +90,10 @@ module.exports = {
 		],
 		eqeqeq: 'error',
 		'guard-for-in': 'error',
+		'max-classes-per-file': [
+			'error',
+			15
+		],
 		'no-alert': 'error',
 		'no-caller': 'error',
 		'no-case-declarations': 'error',
@@ -323,6 +327,10 @@ module.exports = {
 			'error',
 			5000
 		],
+		'max-lines-per-function': [
+			'error',
+			4500
+		],
 		'max-nested-callbacks': [
 			'error',
 			6
@@ -416,6 +424,7 @@ module.exports = {
 				next: 'class'
 			}
 		],
+		'prefer-object-spread': 'error',
 		'quote-props': [
 			'error',
 			'as-needed',
