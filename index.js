@@ -4,7 +4,6 @@ const {join, resolve} = require('path');
 
 const attempt = require('lodash/attempt');
 const isResolvable = require('is-resolvable');
-const values = require('lodash/fp/values');
 
 module.exports = {
 	parserOptions: {
@@ -592,7 +591,7 @@ const {bin} = attempt(require, resolve('package.json'));
 
 if (bin !== undefined) {
 	module.exports.overrides.push({
-		files: typeof bin === 'string' ? bin : values(bin),
+		files: typeof bin === 'string' ? bin : Object.values(bin),
 		rules: {
 			'no-process-exit': 'off'
 		}
