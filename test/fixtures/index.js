@@ -24,7 +24,7 @@ const obj = {
 			return x;
 		} catch {}
 
-		return null;
+		return Promise.reject(new Error('!'));
 	}
 };
 

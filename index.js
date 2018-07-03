@@ -12,7 +12,8 @@ module.exports = {
 	},
 	plugins: [
 		'no-use-extend-native',
-		'node'
+		'node',
+		'promise'
 	],
 	env: {
 		browser: true,
@@ -572,7 +573,19 @@ module.exports = {
 		'node/no-unpublished-require': 'error',
 		'node/process-exit-as-throw': 'error',
 		'node/shebang': 'error',
-		'node/no-deprecated-api': 'error'
+		'node/no-deprecated-api': 'error',
+
+		// eslint-plugin-promise https://github.com/xjamundx/eslint-plugin-promise
+		'promise/no-return-wrap': [
+			'error',
+			{
+				allowReject: true
+			}
+		],
+		'promise/no-return-in-finally': 'error',
+		'promise/param-names': 'error',
+		'promise/prefer-await-to-then': 'error',
+		'promise/valid-params': 'error'
 	},
 	overrides: [
 		{
