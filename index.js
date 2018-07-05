@@ -1,6 +1,23 @@
 'use strict';
 
-const {join, resolve} = require('path');
+const {basename, extname, join, resolve} = require('path');
+
+if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process.env.ESLINT_RESPAWNED) {
+	const {spawnSync} = require('child_process');
+
+	process.exit(spawnSync(process.argv[1], [ // eslint-disable-line no-process-exit
+		'--ext=js,mjs',
+		'--fix',
+		'--format=codeframe',
+		...process.argv.slice(2)
+	], {
+		stdio: 'inherit',
+		env: {
+			...process.env,
+			ESLINT_RESPAWNED: '1'
+		}
+	}).status);
+}
 
 const attempt = require('lodash/attempt');
 const isResolvable = require('is-resolvable');

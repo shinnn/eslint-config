@@ -24,7 +24,7 @@ const obj = {
 			return x;
 		} catch {}
 
-		return Promise.reject(new Error('!'));
+		return Promise.reject(new Error('\u2028!'));
 	}
 };
 

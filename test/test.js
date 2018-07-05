@@ -11,12 +11,7 @@ const ora = require('ora');
 const pEvent = require('p-event');
 const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
-const args = [
-	join(__dirname, '..', 'node_modules', 'eslint', 'bin', 'eslint.js'),
-	'--ext=.js,.mjs',
-	'--format=codeframe',
-	'.'
-];
+const args = [require.resolve('eslint/bin/eslint.js'), '.'];
 
 async function runEslint(dir) {
 	const spinner = ora(`Running ESLint in ${cyan(dir)}`).start();
