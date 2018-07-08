@@ -1,6 +1,6 @@
 {
 	"name": "@shinnn/eslint-config",
-	"version": "6.1.0",
+	"version": "6.2.0",
 	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
 	"repository": "shinnn/eslint-config",
 	"scripts": {
@@ -28,6 +28,7 @@
 		"fix",
 		"autofix",
 		"codeframe",
+		"cache",
 		"env",
 		"rule",
 		"syntax",
@@ -46,7 +47,7 @@
 	},
 	"devDependencies": {
 		"chalk": "^2.4.1",
-		"eslint": "^5.0.1",
+		"eslint": "^5.1.0",
 		"nyc": "^12.0.2",
 		"ora": "^2.1.0",
 		"p-event": "^2.1.0",
