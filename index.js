@@ -20,6 +20,14 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 			'--ext=js,mjs',
 			'--fix',
 			'--format=codeframe',
+			...[
+				'coverage',
+				'dest',
+				'dist',
+				'temp',
+				'tmp',
+				'vendor'
+			].map(dir => `--ignore-pattern=${dir}/**/*`),
 			...process.argv.slice(2)
 		])
 	], {
@@ -618,18 +626,8 @@ module.exports = {
 		'promise/prefer-await-to-then': 'error',
 		'promise/valid-params': 'error'
 	},
-	overrides: [
-		{
-			files: '{coverage,dest,dist,t{,e}mp,vendor}/**/*.{,m}js',
-			rules: {},
-			parser: require.resolve('./noop-parser.js')
-		}
-	]
+	overrides: []
 };
-
-for (const rule of Object.keys(module.exports.rules)) {
-	module.exports.overrides[0].rules[rule] = 'off';
-}
 
 const {bin} = attempt(require, resolve('package.json'));
 

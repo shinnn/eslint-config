@@ -12,8 +12,7 @@
 		"access": "public"
 	},
 	"files": [
-		"index.js",
-		"noop-parser.js"
+		"index.js"
 	],
 	"keywords": [
 		"rc",
@@ -41,7 +40,6 @@
 		"eslint-plugin-no-use-extend-native": "^0.3.12",
 		"eslint-plugin-node": "^6.0.1",
 		"eslint-plugin-promise": "^3.8.0",
-		"espree": "^4.0.0",
 		"is-resolvable": "^1.1.0",
 		"lodash": "^4.17.10"
 	},
