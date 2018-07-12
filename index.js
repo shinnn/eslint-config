@@ -259,7 +259,6 @@ module.exports = {
 		],
 
 		// Variables: http://eslint.org/docs/rules/#variables
-		'no-catch-shadow': 'error',
 		'no-delete-var': 'error',
 		'no-label-var': 'error',
 		'no-restricted-globals': 'error',
