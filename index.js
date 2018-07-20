@@ -612,6 +612,11 @@ module.exports = {
 		'node/process-exit-as-throw': 'error',
 		'node/shebang': 'error',
 		'node/no-deprecated-api': 'error',
+		'node/prefer-global/buffer': 'error',
+		'node/prefer-global/console': 'error',
+		'node/prefer-global/process': 'error',
+		'node/prefer-global/url-search-params': 'error',
+		'node/prefer-global/url': 'error',
 
 		// eslint-plugin-promise https://github.com/xjamundx/eslint-plugin-promise
 		'promise/no-return-wrap': [
