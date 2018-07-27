@@ -11,7 +11,8 @@
 * Support [ECMAScript 2019](http://2ality.com/2018/02/ecmascript-2019.html) features – [optional `catch` binding](https://github.com/tc39/proposal-optional-catch-binding) and [JSON superset](https://github.com/tc39/proposal-json-superset)
 * [Target](https://eslint.org/docs/user-guide/command-line-interface#--ext) `.mjs` file extension by default to support [ECMAScript modules](https://nodejs.org/api/esm.html)
 * [Automatically fix errors](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) without explicitly passing a `--fix` flag
-  * Users still can disable it with `--no-fix` flag.
+  * On [CI](https://docs.travis-ci.com/user/getting-started) [environments](https://www.appveyor.com/), this feature is disabled in order to encourage fixing code locally.
+  * Users still can manually disable it with `--no-fix` flag.
 * Automatically ignore [generated files](https://github.com/shinnn/eslint-config/blob/v6.0.0/index.js#L592), for example paths under `coverage/`, `tmp/` and `dist/`
 * Use a beautiful [codeframe](https://eslint.org/docs/user-guide/formatters/#codeframe) formatter by default
 * [Cache results](https://eslint.org/docs/user-guide/command-line-interface#caching) by default to operate only on the changed files

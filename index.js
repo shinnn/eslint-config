@@ -4,6 +4,7 @@ const {basename, extname, join, resolve} = require('path');
 const {renameSync} = require('fs');
 
 const attempt = require('lodash/attempt');
+const uniq = require('lodash/uniq');
 
 const cachePath = join(__dirname, '.eslintcache');
 const tmpCachePath = join(__dirname, '.tmp');
@@ -13,24 +14,24 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 
 	attempt(renameSync, tmpCachePath, cachePath);
 
-	const {status} = spawnSync(process.argv[1], [
-		...new Set([
+	const {status} = spawnSync(process.argv[1], uniq([
+		'--ext=js,mjs',
+		...process.env.CI ? [] : [
 			'--cache',
 			`--cache-location=${cachePath}`,
-			'--ext=js,mjs',
-			'--fix',
-			'--format=codeframe',
-			...[
-				'coverage',
-				'dest',
-				'dist',
-				'temp',
-				'tmp',
-				'vendor'
-			].map(dir => `--ignore-pattern=${dir}/**/*`),
-			...process.argv.slice(2)
-		])
-	], {
+			'--fix'
+		],
+		'--format=codeframe',
+		...[
+			'coverage',
+			'dest',
+			'dist',
+			'temp',
+			'tmp',
+			'vendor'
+		].map(dir => `--ignore-pattern=${dir}/**/*`),
+		...process.argv.slice(2)
+	]), {
 		stdio: 'inherit',
 		env: {
 			...process.env,

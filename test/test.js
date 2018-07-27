@@ -1,29 +1,35 @@
 /* eslint-disable no-process-exit */
 'use strict';
 
-const {inspect} = require('util');
+const {inspect, promisify} = require('util');
 const {join} = require('path');
 const {spawn} = require('child_process');
+const {writeFile} = require('fs');
 
-const difference = require('lodash/difference');
 const {cyan, red} = require('chalk');
+const difference = require('lodash/difference');
 const ora = require('ora');
 const pEvent = require('p-event');
 const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
-const args = [require.resolve('eslint/bin/eslint.js'), '.'];
+const eslintPath = require.resolve('eslint/bin/eslint.js');
 
-async function runEslint(dir) {
-	const spinner = ora(`Running ESLint in ${cyan(dir)}`).start();
-
-	const code = await pEvent(spawn('node', args, {
-		stdio: 'inherit',
-		cwd: join(__dirname, dir)
+async function runEslint(dir, {CI} = {}) {
+	const spinner = ora(`Running ESLint in ${cyan(dir)}${CI ? ' on CI' : ''}`).start();
+	const code = await pEvent(spawn('node', [eslintPath, '.'], {
+		cwd: join(__dirname, dir),
+		env: {...process.env, ...CI ? {CI: 'True'} : {CI: ''}},
+		...CI ? {} : {stdio: 'inherit'}
 	}), 'exit');
 
 	if (code !== 0) {
-		spinner.fail();
-		process.exit(code);
+		if (CI !== true) {
+			spinner.fail();
+			process.exit(code);
+		}
+	} else if (CI) {
+		spinner.fail('Autofixing is unexpectedly enabled on CI.');
+		process.exit(1);
 	}
 
 	spinner.succeed();
@@ -35,7 +41,12 @@ async function runEslint(dir) {
 	await runEslint('./fixtures-multiple-cli/');
 	await runEslint('./fixtures-rollup-config-module/');
 
-	const spinner = ora('Checking if the rules are configured as you expected').start();
+	await runEslint('./fixtures-fix/', {CI: false});
+
+	await promisify(writeFile)(join(__dirname, 'fixtures-fix', 'index.js'), 'console.log(1 );\n');
+	await runEslint('./fixtures-fix/', {CI: true});
+
+	const spinner = ora('Checking if the rules are configured as you expected');
 
 	const explicitlyUnconfigured = [
 		// Possible Errors: http://eslint.org/docs/rules/#possible-errors
