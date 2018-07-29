@@ -9,12 +9,13 @@ const uniq = require('lodash/uniq');
 const cachePath = join(__dirname, '.eslintcache');
 const tmpCachePath = join(__dirname, '.tmp');
 
-if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process.env.ESLINT_RESPAWNED) {
+if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process.argv.includes('--stdin') && !process.env.ESLINT_RESPAWNED) {
 	const {spawnSync} = require('child_process');
 
 	attempt(renameSync, tmpCachePath, cachePath);
 
-	const {status} = spawnSync(process.argv[1], uniq([
+	const {status} = spawnSync(process.argv[0], uniq([
+		process.argv[1],
 		'--ext=js,mjs',
 		...process.env.CI ? [] : [
 			'--cache',
