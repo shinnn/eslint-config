@@ -46,6 +46,8 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 
 const isResolvable = require('is-resolvable');
 
+const {bin, private: isPrivate} = attempt(require, resolve('package.json'));
+
 module.exports = {
 	parserOptions: {
 		ecmaVersion: 10,
@@ -608,9 +610,11 @@ module.exports = {
 		'node/no-extraneous-require': 'error',
 		'node/no-missing-import': 'error',
 		'node/no-missing-require': 'error',
-		'node/no-unpublished-bin': 'error',
-		'node/no-unpublished-import': 'error',
-		'node/no-unpublished-require': 'error',
+		...isPrivate ? {} : {
+			'node/no-unpublished-bin': 'error',
+			'node/no-unpublished-import': 'error',
+			'node/no-unpublished-require': 'error'
+		},
 		'node/process-exit-as-throw': 'error',
 		'node/shebang': 'error',
 		'node/no-deprecated-api': 'error',
@@ -634,8 +638,6 @@ module.exports = {
 	},
 	overrides: []
 };
-
-const {bin} = attempt(require, resolve('package.json'));
 
 if (bin !== undefined) {
 	module.exports.overrides.push({
