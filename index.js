@@ -45,6 +45,7 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 }
 
 const isResolvable = require('is-resolvable');
+const fromPairs = require('lodash/fromPairs');
 
 const {bin, private: isPrivate} = attempt(require, resolve('package.json'));
 
@@ -638,6 +639,43 @@ module.exports = {
 	},
 	overrides: []
 };
+
+// https://developer.apple.com/library/archive/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html
+const JXA_GLOBALS = [
+	'$',
+	'Application',
+	'delay',
+	'Library',
+	'ObjectSpecifier',
+	'ObjC',
+	'Path',
+	'Progress',
+	'Ref'
+];
+
+module.exports.overrides.push({
+	files: ['**/*jxa*{,/**/*}.js'],
+	globals: fromPairs(JXA_GLOBALS.map(varName => [varName, false])),
+	rules: {
+		'new-cap': [
+			module.exports.rules['new-cap'][0],
+			{
+				...module.exports.rules['new-cap'][1],
+				capIsNewExceptions: [
+					...JXA_GLOBALS.filter(varName => varName.charAt(0).match(/[A-Z]/)),
+					'URLWithString'
+				],
+				capIsNewExceptionPattern: /^\$\.(?:NS|CG)/.source
+			}
+		],
+		'no-unused-vars': [
+			module.exports.rules['no-unused-vars'][0],
+			{
+				varsIgnorePattern: /^(?:_|run)$/.source
+			}
+		]
+	}
+});
 
 if (bin !== undefined) {
 	module.exports.overrides.push({
