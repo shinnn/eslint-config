@@ -73,7 +73,7 @@ const encoding = ['utf8'].filter(() => typeof this === 'string');
 		'\u00A9',
 		'first\n' +
     'second',
-		/ {1}/
+		/ 🏄‍♂️{1}/u
 	];
 
 	const second = arr[1];

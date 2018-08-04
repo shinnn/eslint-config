@@ -1,4 +1,4 @@
-setTimeout(function() {
-	var rnd = Math.random();
-	console.log('Got ' + rnd + '.');
+setImmediate(function() {
+	var re = /[ab]/;
+	console.log(re.test('a'));
 });

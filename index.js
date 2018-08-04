@@ -78,6 +78,7 @@ module.exports = {
 		// Possible Errors: http://eslint.org/docs/rules/#possible-errors
 		'for-direction': 'error',
 		'getter-return': 'error',
+		'no-async-promise-executor': 'error',
 		'no-await-in-loop': 'error',
 		'no-compare-neg-zero': 'error',
 		'no-cond-assign': 'error',
@@ -108,6 +109,7 @@ module.exports = {
 		'no-inner-declarations': 'error',
 		'no-invalid-regexp': 'error',
 		'no-irregular-whitespace': 'error',
+		'no-misleading-character-class': 'error',
 		'no-unsafe-negation': 'error',
 		'no-obj-calls': 'error',
 		'no-prototype-builtins': 'error',
@@ -116,6 +118,7 @@ module.exports = {
 		'no-template-curly-in-string': 'error',
 		'no-unreachable': 'error',
 		'no-unsafe-finally': 'error',
+		'require-atomic-updates': 'error',
 		'use-isnan': 'error',
 		'valid-typeof': 'error',
 		'no-unexpected-multiline': 'error',
@@ -251,6 +254,7 @@ module.exports = {
 		'no-with': 'error',
 		'prefer-promise-reject-errors': 'error',
 		radix: 'error',
+		'require-unicode-regexp': 'error',
 		'wrap-iife': [
 			'error',
 			'inside'
@@ -662,16 +666,16 @@ module.exports.overrides.push({
 			{
 				...module.exports.rules['new-cap'][1],
 				capIsNewExceptions: [
-					...JXA_GLOBALS.filter(varName => varName.charAt(0).match(/[A-Z]/)),
+					...JXA_GLOBALS.filter(varName => varName.charAt(0).match(/[A-Z]/u)),
 					'URLWithString'
 				],
-				capIsNewExceptionPattern: /^\$\.(?:NS|CG)/.source
+				capIsNewExceptionPattern: /^\$\.(?:NS|CG)/u.source
 			}
 		],
 		'no-unused-vars': [
 			module.exports.rules['no-unused-vars'][0],
 			{
-				varsIgnorePattern: /^(?:_|run)$/.source
+				varsIgnorePattern: /^(?:_|run)$/u.source
 			}
 		]
 	}
@@ -696,6 +700,7 @@ if (isResolvable('rollup-config-module', {
 			'index.mjs'
 		],
 		rules: {
+			'require-unicode-regexp': 'off',
 			'no-var': 'off',
 			'object-shorthand': 'off',
 			'prefer-arrow-callback': 'off',
