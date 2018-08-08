@@ -27,10 +27,11 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 			'coverage',
 			'dest',
 			'dist',
-			'temp',
-			'tmp',
+			'**/fixture',
+			'**/temp',
+			'**/tmp',
 			'vendor'
-		].map(dir => `--ignore-pattern=${dir}/**/*`),
+		].map(dir => `--ignore-pattern=${dir}*/**/*`),
 		...process.argv.slice(2)
 	]), {
 		stdio: 'inherit',
