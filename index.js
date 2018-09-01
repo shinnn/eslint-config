@@ -414,7 +414,9 @@ module.exports = {
 		'no-multiple-empty-lines': [
 			'error',
 			{
-				max: 1
+				max: 1,
+				maxBOF: 0,
+				maxEOF: 0
 			}
 		],
 		'no-nested-ternary': 'error',
