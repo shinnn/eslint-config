@@ -4,40 +4,47 @@ const {basename, extname, join, resolve} = require('path');
 const {renameSync} = require('fs');
 
 const attempt = require('lodash/attempt');
-const uniq = require('lodash/uniq');
 
 const cachePath = join(__dirname, '.eslintcache');
 const tmpCachePath = join(__dirname, '.tmp');
+
+const hasRollupConfigModule = process.env.HAS_RCM !== undefined ? process.env.HAS_RCM === '1' : require('is-resolvable')('rollup-config-module', {
+	paths: [resolve('node_modules')]
+});
 
 if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process.argv.includes('--stdin') && !process.env.ESLINT_RESPAWNED) {
 	const {spawnSync} = require('child_process');
 
 	attempt(renameSync, tmpCachePath, cachePath);
 
-	const {status} = spawnSync(process.argv[0], uniq([
-		process.argv[1],
-		'--ext=js,mjs',
-		...process.env.CI ? [] : [
-			'--cache',
-			`--cache-location=${cachePath}`,
-			'--fix'
-		],
-		'--format=codeframe',
-		...[
-			'coverage',
-			'dest',
-			'dist',
-			'**/fixture',
-			'**/temp',
-			'**/tmp',
-			'vendor'
-		].map(dir => `--ignore-pattern=${dir}*/**/*`),
-		...process.argv.slice(2)
-	]), {
+	const {status} = spawnSync(process.argv[0], [
+		...new Set([
+			process.argv[1],
+			'--ext=js,mjs',
+			...process.env.CI ? [] : [
+				'--cache',
+				`--cache-location=${cachePath}`,
+				'--fix'
+			],
+			'--format=codeframe',
+			...[
+				'coverage',
+				'dest',
+				'dist',
+				'**/fixture',
+				'**/temp',
+				'**/tmp',
+				'vendor'
+			].map(dir => `--ignore-pattern=${dir}*/**/*`),
+			...hasRollupConfigModule ? ['--ignore-pattern=index.js'] : [],
+			...process.argv.slice(2)
+		])
+	], {
 		stdio: 'inherit',
 		env: {
 			...process.env,
-			ESLINT_RESPAWNED: '1'
+			ESLINT_RESPAWNED: '1',
+			HAS_RCM: hasRollupConfigModule ? '1' : '0'
 		}
 	});
 
@@ -45,7 +52,6 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 	process.exit(status); // eslint-disable-line no-process-exit
 }
 
-const isResolvable = require('is-resolvable');
 const fromPairs = require('lodash/fromPairs');
 
 const {bin, private: isPrivate} = attempt(require, resolve('package.json'));
@@ -72,7 +78,8 @@ module.exports = {
 			allowModules: [
 				'electron',
 				'vscode'
-			]
+			],
+			...hasRollupConfigModule ? {tryExtensions: ['.js', '.json', '.mjs']} : {}
 		}
 	},
 	rules: {
@@ -694,14 +701,9 @@ if (bin !== undefined) {
 }
 
 // https://github.com/shinnn/rollup-config-module
-if (isResolvable('rollup-config-module', {
-	paths: [join(process.cwd(), 'node_modules')]
-})) {
+if (hasRollupConfigModule) {
 	module.exports.overrides.push({
-		files: [
-			'index.js',
-			'index.mjs'
-		],
+		files: ['index.mjs'],
 		rules: {
 			'require-unicode-regexp': 'off',
 			'no-var': 'off',
