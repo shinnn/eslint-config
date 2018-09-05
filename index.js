@@ -54,7 +54,8 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 
 const fromPairs = require('lodash/fromPairs');
 
-const {bin, private: isPrivate} = attempt(require, resolve('package.json'));
+const {bin, files, module: moduleEntry, private: isPrivate} = attempt(require, resolve('package.json'));
+const isNpmPackageModuleWithoutBrowserSupport = !hasRollupConfigModule && files && !moduleEntry && !isPrivate;
 
 module.exports = {
 	parserOptions: {
@@ -67,11 +68,13 @@ module.exports = {
 		'promise'
 	],
 	env: {
-		browser: true,
+		es6: true,
 		node: true,
-		worker: true,
-		serviceworker: true,
-		es6: true
+		...isNpmPackageModuleWithoutBrowserSupport ? {} : {
+			browser: true,
+			serviceworker: true,
+			worker: true
+		}
 	},
 	settings: {
 		node: {
