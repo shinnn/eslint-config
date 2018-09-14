@@ -3,11 +3,11 @@
 	"version": "6.7.0",
 	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
 	"repository": "shinnn/eslint-config",
+	"license": "ISC",
 	"scripts": {
 		"pretest": "eslint .",
-		"test": "nyc --reporter=html --reporter=text node test/test.js"
+		"test": "nyc node test/test.js"
 	},
-	"license": "ISC",
 	"publishConfig": {
 		"access": "public"
 	},
@@ -47,11 +47,15 @@
 		"chalk": "^2.4.1",
 		"eslint": "^5.5.0",
 		"nyc": "^13.0.1",
+		"nyc-config-common": "^1.0.0",
 		"ora": "^3.0.0",
 		"p-event": "^2.1.0",
 		"unconfigured-eslint-rules": "^6.0.0"
 	},
 	"eslintConfig": {
 		"extends": "./index.js"
+	},
+	"nyc": {
+		"extends": "nyc-config-common"
 	}
 }
