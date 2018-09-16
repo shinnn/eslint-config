@@ -654,7 +654,17 @@ module.exports = {
 		'promise/prefer-await-to-then': 'error',
 		'promise/valid-params': 'error'
 	},
-	overrides: []
+	overrides: [
+		{
+			files: ['**/*.mjs'],
+			rules: {
+				strict: [
+					'error',
+					'never'
+				]
+			}
+		}
+	]
 };
 
 // https://developer.apple.com/library/archive/releasenotes/InterapplicationCommunication/RN-JavaScriptForAutomation/Articles/OSX10-10.html
