@@ -1,6 +1,6 @@
 {
 	"name": "@shinnn/eslint-config",
-	"version": "6.7.0",
+	"version": "6.7.1",
 	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
 	"repository": "shinnn/eslint-config",
 	"license": "ISC",
@@ -39,13 +39,13 @@
 	"dependencies": {
 		"eslint-plugin-no-use-extend-native": "^0.3.12",
 		"eslint-plugin-node": "^7.0.1",
-		"eslint-plugin-promise": "^4.0.0",
+		"eslint-plugin-promise": "^4.0.1",
 		"is-resolvable": "^1.1.0",
-		"lodash": "^4.17.10"
+		"lodash": "^4.17.11"
 	},
 	"devDependencies": {
 		"chalk": "^2.4.1",
-		"eslint": "^5.5.0",
+		"eslint": "^5.6.0",
 		"nyc": "^13.0.1",
 		"nyc-config-common": "^1.0.0",
 		"ora": "^3.0.0",
