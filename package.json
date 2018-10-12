@@ -53,7 +53,17 @@
 		"unconfigured-eslint-rules": "^6.0.0"
 	},
 	"eslintConfig": {
-		"extends": "./index.js"
+		"extends": "./index.js",
+		"overrides": [
+			{
+				"files": [
+					"index.js"
+				],
+				"rules": {
+					"no-process-exit": "off"
+				}
+			}
+		]
 	},
 	"nyc": {
 		"extends": "nyc-config-common"

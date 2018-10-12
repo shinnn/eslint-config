@@ -14,11 +14,21 @@ const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
 const eslintPath = require.resolve('eslint/bin/eslint.js');
 
-async function runEslint(dir, {CI} = {}) {
-	const spinner = ora(`Running ESLint in ${cyan(dir)}${CI ? ' on CI' : ''}`).start();
+async function runEslint(dir, {CI, travisCiWindows} = {}) {
+	const spinner = ora(`Running ESLint in ${
+		cyan(dir)
+	}${
+		CI ? ' on CI' : ''
+	}${
+		travisCiWindows ? ' on Travis CI Windows build' : ''
+	}`).start();
 	const code = await pEvent(spawn('node', [eslintPath, '.'], {
 		cwd: join(__dirname, dir),
-		env: {...process.env, ...CI ? {CI: 'True'} : {CI: ''}},
+		env: {
+			...process.env,
+			...CI ? {CI: 'True'} : {CI: ''},
+			...travisCiWindows ? {TRAVIS_OS_NAME: 'windows'} : {}
+		},
 		...CI ? {} : {stdio: 'inherit'}
 	}), 'exit');
 
@@ -45,6 +55,7 @@ async function runEslint(dir, {CI} = {}) {
 
 	await promisify(writeFile)(join(__dirname, 'fixtures-fix', 'index.js'), 'console.log(1 );\n');
 	await runEslint('./fixtures-fix/', {CI: true});
+	await runEslint('./fixtures-fix/', {travisCiWindows: true});
 
 	const spinner = ora('Checking if the rules are configured as you expected');
 

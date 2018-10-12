@@ -12,6 +12,10 @@ const hasRollupConfigModule = process.env.HAS_RCM !== undefined ? process.env.HA
 	paths: [resolve('node_modules')]
 });
 
+if (process.env.TRAVIS_OS_NAME === 'windows') {
+	process.exit();
+}
+
 if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process.argv.includes('--stdin') && !process.env.ESLINT_RESPAWNED) {
 	const {spawnSync} = require('child_process');
 
@@ -49,7 +53,7 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 	});
 
 	attempt(renameSync, cachePath, tmpCachePath);
-	process.exit(status); // eslint-disable-line no-process-exit
+	process.exit(status);
 }
 
 const fromPairs = require('lodash/fromPairs');
