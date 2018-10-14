@@ -45,7 +45,7 @@
 	},
 	"devDependencies": {
 		"chalk": "^2.4.1",
-		"eslint": "^5.6.1",
+		"eslint": "^5.7.0",
 		"nyc": "^13.0.1",
 		"nyc-config-common": "^1.0.0",
 		"ora": "^3.0.0",

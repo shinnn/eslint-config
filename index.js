@@ -328,7 +328,8 @@ module.exports = {
 		camelcase: [
 			'error',
 			{
-				properties: 'always'
+				properties: 'always',
+				allow: [/^npm_config_/u.source]
 			}
 		],
 		'comma-dangle': 'error',

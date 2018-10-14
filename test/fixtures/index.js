@@ -1,9 +1,10 @@
+'use strict';
 /*!*
  * Block comment
 */
 
 // Line comment
-'use strict';
+process.emv.npm_config_production = true;
 
 const {readFile} = require('fs');
 const {resolve} = require('path');
