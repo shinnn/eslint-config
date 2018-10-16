@@ -349,6 +349,7 @@ module.exports = {
 			'never'
 		],
 		'eol-last': 'error',
+		'func-call-spacing': 'error',
 		'function-paren-newline': 'error',
 		'id-blacklist': [
 			'error',
@@ -440,11 +441,16 @@ module.exports = {
 			'error',
 			'WithStatement'
 		],
-		'no-whitespace-before-property': 'error',
-		'func-call-spacing': 'error',
+		'no-tabs': [
+			'error',
+			{
+				allowIndentationTabs: true
+			}
+		],
 		'no-trailing-spaces': 'error',
 		'no-underscore-dangle': 'error',
 		'no-unneeded-ternary': 'error',
+		'no-whitespace-before-property': 'error',
 		'object-curly-spacing': [
 			'error',
 			'never'

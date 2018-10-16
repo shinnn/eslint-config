@@ -116,7 +116,6 @@ async function runEslint(dir, {CI, travisCiWindows} = {}) {
 		'no-mixed-operators',
 		'no-negated-condition',
 		'no-plusplus',
-		'no-tabs',
 		'no-ternary',
 		// because 'curly' is enabled
 		'nonblock-statement-body-position',
