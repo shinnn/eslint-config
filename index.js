@@ -329,7 +329,13 @@ module.exports = {
 			'error',
 			{
 				properties: 'always',
-				allow: [/^npm_config_/u.source]
+				allow: [
+					/^npm_config_/u.source,
+					/^npm_package_/u.source,
+					'npm_execpath',
+					'npm_lifecycle_event',
+					'npm_node_execpath'
+				]
 			}
 		],
 		'comma-dangle': 'error',
