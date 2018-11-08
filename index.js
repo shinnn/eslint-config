@@ -293,6 +293,7 @@ module.exports = {
 		'no-unused-vars': [
 			'error',
 			{
+				caughtErrors: 'all',
 				varsIgnorePattern: '^_$'
 			}
 		],
