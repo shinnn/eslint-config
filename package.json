@@ -1,6 +1,6 @@
 {
 	"name": "@shinnn/eslint-config",
-	"version": "6.8.0",
+	"version": "6.8.1",
 	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
 	"repository": "shinnn/eslint-config",
 	"license": "ISC",
@@ -45,7 +45,7 @@
 	},
 	"devDependencies": {
 		"chalk": "^2.4.1",
-		"eslint": "^5.8.0",
+		"eslint": "^5.9.0",
 		"nyc": "^13.1.0",
 		"nyc-config-common": "^1.0.1",
 		"ora": "^3.0.0",
