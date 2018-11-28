@@ -9,6 +9,10 @@ process.emv.npm_config_production = true;
 const {readFile} = require('fs');
 const {resolve} = require('path');
 
+const {createFileSystemWatcher} = require('vscode').workspace;
+
+console.log(typeof createFileSystemWatcher('*.js'));
+
 let val = 0;
 
 const obj = {

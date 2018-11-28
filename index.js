@@ -7,6 +7,15 @@ const attempt = require('lodash/attempt');
 
 const cachePath = join(__dirname, '.eslintcache');
 const tmpCachePath = join(__dirname, '.tmp');
+const ignored = [
+	'coverage',
+	'dest',
+	'dist',
+	'**/fixture',
+	'**/temp',
+	'**/tmp',
+	'vendor'
+].map(dir => `${dir}*/**/*`);
 
 const hasRollupConfigModule = process.env.HAS_RCM !== undefined ? process.env.HAS_RCM === '1' : require('is-resolvable')('rollup-config-module', {
 	paths: [resolve('node_modules')]
@@ -31,15 +40,7 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 				'--fix'
 			],
 			'--format=codeframe',
-			...[
-				'coverage',
-				'dest',
-				'dist',
-				'**/fixture',
-				'**/temp',
-				'**/tmp',
-				'vendor'
-			].map(dir => `--ignore-pattern=${dir}*/**/*`),
+			...ignored.map(pattern => `--ignore-pattern=${pattern}`),
 			...hasRollupConfigModule ? ['--ignore-pattern=index.js'] : [],
 			...process.argv.slice(2)
 		])
@@ -748,6 +749,17 @@ if (hasRollupConfigModule) {
 			'prefer-rest-params': 'off',
 			'prefer-spread': 'off',
 			'prefer-template': 'off'
+		}
+	});
+}
+
+if (!isPrivate) {
+	module.exports.overrides.push({
+		files: ignored,
+		rules: {
+			'node/no-unpublished-bin': 'error',
+			'node/no-unpublished-import': 'error',
+			'node/no-unpublished-require': 'error'
 		}
 	});
 }
