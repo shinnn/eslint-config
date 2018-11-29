@@ -1,6 +1,6 @@
 {
 	"name": "@shinnn/eslint-config",
-	"version": "6.8.1",
+	"version": "6.8.2",
 	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
 	"repository": "shinnn/eslint-config",
 	"license": "ISC",
