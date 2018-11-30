@@ -33,7 +33,7 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 	const {status} = spawnSync(process.argv[0], [
 		...new Set([
 			process.argv[1],
-			'--ext=js,mjs',
+			'--ext=js,mjs,svelte',
 			...process.env.CI ? [] : [
 				'--cache',
 				`--cache-location=${cachePath}`,
@@ -68,6 +68,7 @@ module.exports = {
 		sourceType: 'module'
 	},
 	plugins: [
+		'html',
 		'no-use-extend-native',
 		'node',
 		'promise'
@@ -82,6 +83,7 @@ module.exports = {
 		}
 	},
 	settings: {
+		'html/html-extensions': ['.svelte'],
 		node: {
 			allowModules: [
 				'electron',

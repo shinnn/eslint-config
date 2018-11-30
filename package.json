@@ -37,6 +37,7 @@
 		"personal"
 	],
 	"dependencies": {
+		"eslint-plugin-html": "^5.0.0",
 		"eslint-plugin-no-use-extend-native": "^0.3.12",
 		"eslint-plugin-node": "^8.0.0",
 		"eslint-plugin-promise": "^4.0.1",
