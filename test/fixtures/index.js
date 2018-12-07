@@ -52,6 +52,13 @@ class Class {
 	}
 }
 
+window
+.count = Boolean(new Class(0b0).x);
+
+window
+.count = window.count ? Number(createId.next().value) : 'strstr' +
+                                                        'str';
+
 function createId() {
 	let index = 0;
 	while (index < 100000) {
@@ -59,13 +66,6 @@ function createId() {
 	}
 	return index;
 }
-
-window
-.count = Boolean(new Class(0b0).x);
-
-window
-.count = window.count ? Number(createId.next().value) : 'strstr' +
-                                                        'str';
 
 const encoding = ['utf8'].filter(() => typeof this === 'string');
 

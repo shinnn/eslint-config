@@ -300,7 +300,12 @@ module.exports = {
 				varsIgnorePattern: '^_$'
 			}
 		],
-		'no-use-before-define': 'error',
+		'no-use-before-define': [
+			'error',
+			{
+				functions: false
+			}
+		],
 
 		// Node.js and CommonJS: http://eslint.org/docs/rules/#nodejs-and-commonjs
 		'handle-callback-err': 'error',
