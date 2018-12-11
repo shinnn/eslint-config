@@ -25,14 +25,17 @@ if (process.env.TRAVIS_OS_NAME === 'windows') {
 	process.exit();
 }
 
-if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process.argv.includes('--stdin') && !process.env.ESLINT_RESPAWNED) {
+const {argv} = process;
+const isRunningEslintCli = argv[1] && basename(argv[1], extname(argv[1])) === 'eslint';
+
+if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPAWNED) {
 	const {spawnSync} = require('child_process');
 
 	attempt(renameSync, tmpCachePath, cachePath);
 
-	const {status} = spawnSync(process.argv[0], [
+	const {status} = spawnSync(argv[0], [
 		...new Set([
-			process.argv[1],
+			argv[1],
 			'--ext=js,mjs,svelte',
 			...process.env.CI ? [] : [
 				'--cache',
@@ -42,7 +45,7 @@ if (basename(process.argv[1], extname(process.argv[1])) === 'eslint' && !process
 			'--format=codeframe',
 			...ignored.map(pattern => `--ignore-pattern=${pattern}`),
 			...hasRollupConfigModule ? ['--ignore-pattern=index.js'] : [],
-			...process.argv.slice(2)
+			...argv.slice(2)
 		])
 	], {
 		stdio: 'inherit',
