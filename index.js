@@ -21,14 +21,14 @@ const hasRollupConfigModule = process.env.HAS_RCM !== undefined ? process.env.HA
 	paths: [resolve('node_modules')]
 });
 
-if (process.env.TRAVIS_OS_NAME === 'windows') {
-	process.exit();
-}
-
 const {argv} = process;
 const isRunningEslintCli = argv[1] && basename(argv[1], extname(argv[1])) === 'eslint';
 
 if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPAWNED) {
+	if (process.env.TRAVIS_OS_NAME === 'windows') {
+		process.exit();
+	}
+
 	const {spawnSync} = require('child_process');
 
 	attempt(renameSync, tmpCachePath, cachePath);

@@ -63,7 +63,6 @@ async function runEslint(dir, {CI, travisCiWindows} = {}) {
 		// Possible Errors: http://eslint.org/docs/rules/#possible-errors
 		'no-console',
 		'no-continue',
-		'valid-jsdoc',
 
 		// Best Practices: http://eslint.org/docs/rules/#best-practices
 		'complexity',
@@ -122,7 +121,6 @@ async function runEslint(dir, {CI, travisCiWindows} = {}) {
 		'object-curly-newline',
 		// because 'one-var' is already disallowed
 		'one-var-declaration-per-line',
-		'require-jsdoc',
 		'sort-keys',
 		'sort-vars',
 		'sort-imports',
