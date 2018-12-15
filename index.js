@@ -36,15 +36,16 @@ if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPA
 	const {status} = spawnSync(argv[0], [
 		...new Set([
 			argv[1],
-			'--ext=js,mjs,svelte',
+			...argv.some(flag => flag.startsWith('--ext')) ? [] : ['--ext=js,mjs,svelte'],
 			...process.env.CI ? [] : [
-				'--cache',
-				`--cache-location=${cachePath}`,
-				'--fix'
+				...argv.includes('--no-cache') ? [] : ['--cache', `--cache-location=${cachePath}`],
+				...argv.includes('--no-fix') ? [] : ['--fix']
 			],
-			'--format=codeframe',
-			...ignored.map(pattern => `--ignore-pattern=${pattern}`),
-			...hasRollupConfigModule ? ['--ignore-pattern=index.js'] : [],
+			...argv.some(flag => flag.startsWith('-f') || flag.startsWith('--format')) ? [] : ['--format=codeframe'],
+			...argv.includes('--no-ignore') ? [] : [
+				...ignored.map(pattern => `--ignore-pattern=${pattern}`),
+				...hasRollupConfigModule ? ['--ignore-pattern=index.js'] : []
+			],
 			...argv.slice(2)
 		])
 	], {
