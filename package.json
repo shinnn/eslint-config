@@ -38,7 +38,7 @@
 	],
 	"dependencies": {
 		"eslint-plugin-html": "^5.0.0",
-		"eslint-plugin-no-use-extend-native": "^0.3.12",
+		"eslint-plugin-no-use-extend-native": "^0.4.0",
 		"eslint-plugin-node": "^8.0.0",
 		"eslint-plugin-promise": "^4.0.1",
 		"is-resolvable": "^1.1.0",
@@ -46,7 +46,7 @@
 	},
 	"devDependencies": {
 		"chalk": "^2.4.1",
-		"eslint": "^5.10.0",
+		"eslint": "^5.11.0",
 		"nyc": "^13.1.0",
 		"nyc-config-common": "^1.0.1",
 		"ora": "^3.0.0",
