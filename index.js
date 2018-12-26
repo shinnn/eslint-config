@@ -268,6 +268,7 @@ module.exports = {
 		'no-unmodified-loop-condition': 'error',
 		'no-unused-expressions': 'error',
 		'no-useless-call': 'error',
+		'no-useless-catch': 'error',
 		'no-useless-concat': 'error',
 		'no-useless-escape': 'error',
 		'no-useless-return': 'error',
