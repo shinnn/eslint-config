@@ -1,7 +1,7 @@
 # @shinnn/eslint-config
 
 [![npm version](https://img.shields.io/npm/v/@shinnn%2feslint-config.svg)](https://www.npmjs.com/package/@shinnn/eslint-config)
-[![Build Status](https://travis-ci.org/shinnn/eslint-config.svg?branch=master)](https://travis-ci.org/shinnn/eslint-config)
+[![Build Status](https://travis-ci.com/shinnn/eslint-config.svg?branch=master)](https://travis-ci.com/shinnn/eslint-config)
 [![Coverage Status](https://img.shields.io/coveralls/shinnn/eslint-config.svg)](https://coveralls.io/github/shinnn/eslint-config)
 
 [shinnn](https://github.com/shinnn)'s [ESLint](https://eslint.org/) [sharable config](https://eslint.org/docs/developer-guide/shareable-configs.html) for both [client-side](https://en.wikipedia.org/wiki/Client-side_scripting) and [Node.js](https://nodejs.org/)-based projects
@@ -14,14 +14,14 @@
 * [Automatically fix errors](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) without explicitly passing a `--fix` flag
   * On [CI](https://docs.travis-ci.com/user/getting-started) [environments](https://www.appveyor.com/), this feature is disabled in order to encourage fixing code locally.
   * Users still can manually disable it with `--no-fix` flag.
-* Automatically ignore [generated files](https://github.com/shinnn/eslint-config/blob/v6.0.0/index.js#L592), for example paths under `coverage/`, `tmp/` and `dist/`
+* Automatically ignore [generated files](https://github.com/shinnn/eslint-config/blob/v6.8.9/index.js#L10-L18), for example paths under `coverage/`, `tmp/` and `dist/`
 * Use a beautiful [codeframe](https://eslint.org/docs/user-guide/formatters/#codeframe) formatter by default
 * [Cache results](https://eslint.org/docs/user-guide/command-line-interface#caching) by default to operate only on the changed files
 * Allow CLI-friendly [`process.exit()`](https://nodejs.org/api/process.html#process_process_exit_code) to be used *only* inside [executables](https://docs.npmjs.com/files/package.json#bin)
 
 ## Installation
 
-[Install](https://docs.npmjs.com/cli/install) [`eslint`](https://www.npmjs.com/package/eslint) and this package with [npm](https://docs.npmjs.com/getting-started/what-is-npm).
+[Install](https://docs.npmjs.com/cli/install) [`eslint`](https://www.npmjs.com/package/eslint) and this package with [npm](https://docs.npmjs.com/about-npm/).
 
 ```
 npm install --save-dev eslint @shinnn/eslint-config
@@ -48,7 +48,7 @@ $ eslint .
 const {CLIEngine} = require('eslint');
 
 const cli = new CLIEngine({
-  // For programmatic usage via API and build tool integrations like webpack eslint-loader,
+  // For programmatic usage via API and build tool integrations like Webpack eslint-loader,
   // options for example `fix: true` and `cache: true` are still needed to set them explicitly.
 });
 cli.executeOnText('var foo=true;'); //=> {results: [ ... ], errorCount: ... }
@@ -56,4 +56,4 @@ cli.executeOnText('var foo=true;'); //=> {results: [ ... ], errorCount: ... }
 
 ## License
 
-[ISC License](./LICENSE) © 2017 - 2018 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2017 - 2019 Shinnosuke Watanabe

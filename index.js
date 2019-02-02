@@ -715,14 +715,14 @@ const JXA_GLOBALS = [
 
 module.exports.overrides.push({
 	files: ['**/*jxa*{,/**/*}.js'],
-	globals: fromPairs(JXA_GLOBALS.map(varName => [varName, false])),
+	globals: fromPairs(JXA_GLOBALS.map(varName => [varName, 'readable'])),
 	rules: {
 		'new-cap': [
 			module.exports.rules['new-cap'][0],
 			{
 				...module.exports.rules['new-cap'][1],
 				capIsNewExceptions: [
-					...JXA_GLOBALS.filter(varName => varName.charAt(0).match(/[A-Z]/u)),
+					...JXA_GLOBALS.filter(([firstChar]) => firstChar.match(/[A-Z]/u)),
 					'URLWithString'
 				],
 				capIsNewExceptionPattern: /^\$\.(?:NS|CG)/u.source
