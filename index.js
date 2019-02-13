@@ -254,6 +254,21 @@ module.exports = {
 				object: '_',
 				property: 'valueOf',
 				message: 'It is just an alias for _.value().'
+			},
+			{
+				object: 'Object',
+				property: 'getOwnPropertyDescriptor',
+				message: 'Use Reflect.getOwnPropertyDescriptor() as it validates the argument type stricter in runtime.'
+			},
+			{
+				object: 'Object',
+				property: 'isExtensible',
+				message: 'Use Reflect.isExtensible() as it validates the argument type stricter in runtime.'
+			},
+			{
+				object: 'Object',
+				property: 'preventExtensions',
+				message: 'Use Reflect.preventExtensions() as it validates the argument type stricter in runtime.'
 			}
 		],
 		'no-return-assign': [
