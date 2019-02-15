@@ -256,6 +256,16 @@ module.exports = {
 				message: 'It is just an alias for _.value().'
 			},
 			{
+				object: 'os',
+				property: 'arch',
+				message: 'Use the simpler equivalent `process.arch` or consider using `arch` npm package https://www.npmjs.com/package/arch to get an actual operating system CPU architecture.'
+			},
+			{
+				object: 'os',
+				property: 'platform',
+				message: 'Use the simpler equivalent `process.platform`.'
+			},
+			{
 				object: 'Object',
 				property: 'getOwnPropertyDescriptor',
 				message: 'Use Reflect.getOwnPropertyDescriptor() as it validates the argument type stricter in runtime.'
