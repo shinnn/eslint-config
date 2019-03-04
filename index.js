@@ -300,6 +300,7 @@ module.exports = {
 		'no-void': 'error',
 		'no-warning-comments': 'error',
 		'no-with': 'error',
+		'prefer-named-capture-group': 'error',
 		'prefer-promise-reject-errors': 'error',
 		radix: 'error',
 		'require-unicode-regexp': 'error',
@@ -776,6 +777,7 @@ if (hasRollupConfigModule) {
 	module.exports.overrides.push({
 		files: ['index.mjs'],
 		rules: {
+			'prefer-named-capture-group': 'off',
 			'require-unicode-regexp': 'off',
 			'no-var': 'off',
 			'object-shorthand': 'off',

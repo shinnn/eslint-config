@@ -78,7 +78,7 @@ const encoding = ['utf8'].filter(() => typeof this === 'string');
 		'\u00A9',
 		'first\n' +
     'second',
-		/ 🏄‍♂️{1}/u
+		/ 🏄‍♂️{1}(?<namedCaptureGroup>a|b)/u
 	];
 
 	const second = arr[1];

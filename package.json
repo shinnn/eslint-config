@@ -47,11 +47,11 @@
 	},
 	"devDependencies": {
 		"chalk": "^2.4.2",
-		"eslint": "^5.14.0",
+		"eslint": "^5.15.1",
 		"nyc": "^13.3.0",
 		"nyc-config-common": "^1.0.1",
-		"ora": "^3.1.0",
-		"p-event": "^2.3.1",
+		"ora": "^3.2.0",
+		"p-event": "^3.0.0",
 		"unconfigured-eslint-rules": "^6.0.0"
 	},
 	"eslintConfig": {
