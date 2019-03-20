@@ -206,11 +206,6 @@ module.exports = {
 		'no-restricted-properties': [
 			'error',
 			{
-				object: 'console',
-				property: 'warn',
-				message: 'It is just an alias for console.error().'
-			},
-			{
 				object: '_',
 				property: 'first',
 				message: 'It is just an alias for _.head().'
@@ -254,6 +249,16 @@ module.exports = {
 				object: '_',
 				property: 'valueOf',
 				message: 'It is just an alias for _.value().'
+			},
+			{
+				object: 'console',
+				property: 'warn',
+				message: 'It is just an alias for console.error().'
+			},
+			{
+				object: 'File',
+				property: 'uriToFilePath',
+				message: 'Use vscode-uri module which provides a more complete implementation of handling VS Code URIs. https://github.com/Microsoft/vscode-uri'
 			},
 			{
 				object: 'os',
