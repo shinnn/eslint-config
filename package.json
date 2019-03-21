@@ -1,6 +1,6 @@
 {
 	"name": "@shinnn/eslint-config",
-	"version": "6.9.1",
+	"version": "6.9.2",
 	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
 	"repository": "shinnn/eslint-config",
@@ -47,11 +47,11 @@
 	},
 	"devDependencies": {
 		"chalk": "^2.4.2",
-		"eslint": "^5.15.1",
+		"eslint": "^5.15.3",
 		"nyc": "^13.3.0",
 		"nyc-config-common": "^1.0.1",
 		"ora": "^3.2.0",
-		"p-event": "^3.0.0",
+		"p-event": "^4.0.0",
 		"unconfigured-eslint-rules": "^6.0.0"
 	},
 	"eslintConfig": {
