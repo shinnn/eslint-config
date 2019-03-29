@@ -10,7 +10,7 @@
 
 * Enforce tab indents to save file size
 * Support [ECMAScript 2019](http://2ality.com/2018/02/ecmascript-2019.html) features – [optional `catch` binding](https://github.com/tc39/proposal-optional-catch-binding) and [JSON superset](https://github.com/tc39/proposal-json-superset)
-* [Target](https://eslint.org/docs/user-guide/command-line-interface#--ext) `.mjs` file extension by default to support [ECMAScript modules](https://nodejs.org/api/esm.html)
+* [Target](https://eslint.org/docs/user-guide/command-line-interface#--ext) `.cjs` and `.mjs` file extension by default to support [ECMAScript modules](https://nodejs.org/api/esm.html)
 * [Automatically fix errors](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) without explicitly passing a `--fix` flag
   * On [CI](https://docs.travis-ci.com/user/getting-started) [environments](https://www.appveyor.com/), this feature is disabled in order to encourage fixing code locally.
   * Users still can manually disable it with `--no-fix` flag.

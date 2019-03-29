@@ -36,7 +36,7 @@ if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPA
 	const {status} = spawnSync(argv[0], [
 		...new Set([
 			argv[1],
-			...argv.some(flag => flag.startsWith('--ext')) ? [] : ['--ext=js,mjs,svelte'],
+			...argv.some(flag => flag.startsWith('--ext')) ? [] : ['--ext=cjs,js,mjs,svelte'],
 			...process.env.CI ? [] : [
 				...argv.includes('--no-cache') ? [] : ['--cache', `--cache-location=${cachePath}`],
 				...argv.includes('--no-fix') ? [] : ['--fix']
