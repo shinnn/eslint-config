@@ -37,7 +37,7 @@ if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPA
 		...new Set([
 			argv[1],
 			...argv.some(flag => flag.startsWith('--ext')) ? [] : ['--ext=cjs,js,mjs,svelte'],
-			...process.env.CI ? [] : [
+			.../^1|true$/ui.test(process.env.CI) || !!process.env.GITHUB_ACTION ? [] : [
 				...argv.includes('--no-cache') ? [] : ['--cache', `--cache-location=${cachePath}`],
 				...argv.includes('--no-fix') ? [] : ['--fix']
 			],
