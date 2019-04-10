@@ -1,6 +1,6 @@
 {
 	"name": "@shinnn/eslint-config",
-	"version": "6.10.0",
+	"version": "6.10.1",
 	"description": "shinnn's ESLint config for both client-side and Node.js-based projects",
 	"author": "Shinnosuke Watanabe (https://github.com/shinnn)",
 	"repository": "shinnn/eslint-config",
