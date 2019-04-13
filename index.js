@@ -46,6 +46,7 @@ if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPA
 				...ignored.map(pattern => `--ignore-pattern=${pattern}`),
 				...hasRollupConfigModule ? ['--ignore-pattern=index.js'] : []
 			],
+			'--report-unused-disable-directives',
 			...argv.slice(2)
 		])
 	], {
