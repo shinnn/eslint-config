@@ -1,15 +1,15 @@
 /* eslint-disable no-process-exit */
 'use strict';
 
-const {inspect, promisify} = require('util');
+const {inspect} = require('util');
 const {join} = require('path');
+const {once} = require('events');
 const {spawn} = require('child_process');
-const {writeFile} = require('fs');
+const {writeFile} = require('fs').promises;
 
 const {cyan, red} = require('chalk');
 const difference = require('lodash/difference');
 const ora = require('ora');
-const pEvent = require('p-event');
 const unconfiguredESLintRules = require('unconfigured-eslint-rules');
 
 const eslintPath = require.resolve('eslint/bin/eslint.js');
@@ -24,7 +24,7 @@ async function runEslint(dir, {args, CI, travisCiWindows} = {}) {
 	}${
 		travisCiWindows ? ' on Travis CI Windows build' : ''
 	}`).start();
-	const code = await pEvent(spawn('node', [eslintPath, ...args || ['.']], {
+	const [code] = await once(spawn(process.execPath, [eslintPath, ...args || ['.']], {
 		cwd: join(__dirname, dir),
 		env: {
 			...process.env,
@@ -55,7 +55,7 @@ async function runEslint(dir, {args, CI, travisCiWindows} = {}) {
 
 	await runEslint('./fixtures-fix/', {CI: false});
 
-	await promisify(writeFile)(join(__dirname, 'fixtures-fix', 'index.js'), 'console.log(1 );\n');
+	await writeFile(join(__dirname, 'fixtures-fix', 'index.js'), 'console.log(1 );\n');
 	await runEslint('./fixtures-fix/', {args: [
 		'--ext=.js',
 		'--no-cache',

@@ -7,7 +7,7 @@
 	"license": "ISC",
 	"scripts": {
 		"pretest": "eslint .",
-		"test": "nyc node test/test.js"
+		"test": "coverage test/test.js"
 	},
 	"publishConfig": {
 		"access": "public"
@@ -38,20 +38,18 @@
 		"personal"
 	],
 	"dependencies": {
-		"eslint-plugin-html": "^5.0.3",
+		"eslint-plugin-html": "^5.0.5",
 		"eslint-plugin-no-use-extend-native": "^0.4.0",
-		"eslint-plugin-node": "^8.0.1",
+		"eslint-plugin-node": "^9.1.0",
 		"eslint-plugin-promise": "^4.1.1",
 		"is-resolvable": "^1.1.0",
 		"lodash": "^4.17.11"
 	},
 	"devDependencies": {
 		"chalk": "^2.4.2",
+		"coverage": "^0.3.2",
 		"eslint": "^5.16.0",
-		"nyc": "^13.3.0",
-		"nyc-config-common": "^1.0.1",
 		"ora": "^3.4.0",
-		"p-event": "^4.1.0",
 		"unconfigured-eslint-rules": "^6.0.0"
 	},
 	"eslintConfig": {
@@ -66,8 +64,5 @@
 				}
 			}
 		]
-	},
-	"nyc": {
-		"extends": "nyc-config-common"
 	}
 }
