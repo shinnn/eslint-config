@@ -2,9 +2,9 @@
 
 [![npm version](https://img.shields.io/npm/v/@shinnn%2feslint-config.svg)](https://www.npmjs.com/package/@shinnn/eslint-config)
 [![Build Status](https://travis-ci.com/shinnn/eslint-config.svg?branch=master)](https://travis-ci.com/shinnn/eslint-config)
-[![Coverage Status](https://img.shields.io/coveralls/shinnn/eslint-config.svg)](https://coveralls.io/github/shinnn/eslint-config)
+[![codecov](https://codecov.io/gh/shinnn/eslint-config/branch/master/graph/badge.svg)](https://codecov.io/gh/shinnn/eslint-config)
 
-[shinnn](https://github.com/shinnn)'s [ESLint](https://eslint.org/) [sharable config](https://eslint.org/docs/developer-guide/shareable-configs.html) for both [client-side](https://en.wikipedia.org/wiki/Client-side_scripting) and [Node.js](https://nodejs.org/)-based projects
+[shinnn](https://github.com/shinnn)'s [ESLint](https://eslint.org/) [sharable config](https://eslint.org/docs/developer-guide/shareable-configs.html)
 
 ## Features
 
@@ -56,4 +56,4 @@ cli.executeOnText('var foo=true;'); //=> {results: [ ... ], errorCount: ... }
 
 ## License
 
-[ISC License](./LICENSE) © 2017 - 2019 Shinnosuke Watanabe
+[ISC License](./LICENSE) © 2017 - 2019 Watanabe Shinnosuke

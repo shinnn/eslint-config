@@ -36,7 +36,7 @@ if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPA
 	const {status} = spawnSync(argv[0], [
 		...new Set([
 			argv[1],
-			...argv.some(flag => flag.startsWith('--ext')) ? [] : ['--ext=cjs,js,mjs,svelte'],
+			...argv.some(flag => flag.startsWith('--ext')) ? [] : ['--ext=cjs,js,mjs'],
 			.../^1|true$/ui.test(process.env.CI) || !!process.env.GITHUB_ACTION ? [] : [
 				...argv.includes('--no-cache') ? [] : ['--cache', `--cache-location=${cachePath}`],
 				...argv.includes('--no-fix') ? [] : ['--fix']
@@ -73,7 +73,6 @@ module.exports = {
 		sourceType: 'module'
 	},
 	plugins: [
-		'html',
 		'no-use-extend-native',
 		'node',
 		'promise'
@@ -88,7 +87,6 @@ module.exports = {
 		}
 	},
 	settings: {
-		'html/html-extensions': ['.svelte'],
 		node: {
 			allowModules: [
 				'electron',
