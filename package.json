@@ -1,6 +1,6 @@
 {
 	"name": "@shinnn/eslint-config",
-	"version": "6.10.4",
+	"version": "7.0.0-0",
 	"description": "shinnn's ESLint config",
 	"author": "Watanabe Shinnosuke (https://github.com/shinnn)",
 	"repository": "shinnn/eslint-config",
@@ -38,16 +38,16 @@
 		"personal"
 	],
 	"dependencies": {
-		"eslint-plugin-no-use-extend-native": "^0.4.0",
+		"eslint-plugin-no-use-extend-native": "^0.4.1",
 		"eslint-plugin-node": "^9.1.0",
-		"eslint-plugin-promise": "^4.1.1",
+		"eslint-plugin-promise": "^4.2.1",
 		"is-resolvable": "^1.1.0",
 		"lodash": "^4.17.11"
 	},
 	"devDependencies": {
 		"chalk": "^2.4.2",
 		"coverage": "^0.4.1",
-		"eslint": "^6.0.0",
+		"eslint": "^6.0.1",
 		"ora": "^3.4.0",
 		"unconfigured-eslint-rules": "^6.0.0"
 	},
