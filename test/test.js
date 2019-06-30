@@ -52,6 +52,7 @@ async function runEslint(dir, {args, CI, travisCiWindows} = {}) {
 	await runEslint('./fixtures-single-cli/');
 	await runEslint('./fixtures-multiple-cli/');
 	await runEslint('./fixtures-rollup-config-module/');
+	await runEslint('./fixtures-svelte/');
 
 	await runEslint('./fixtures-fix/', {CI: false});
 

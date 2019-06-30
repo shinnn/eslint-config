@@ -1,3 +1,12 @@
+<script>
+	let title;
+
+	$: document.title = title;
+
+	export {title};
+	export let item;
+</script>
+
 <svelte:head>
 	<title>{item.name}</title>
 </svelte:head>
@@ -7,13 +16,3 @@
 	<img src={item.image} alt={item.name}>
 	<p>{item.description}</p>
 </section>
-
-<script>
-	export default {
-		oncreate() {
-			if (location.pathname === '/index.html') {
-				history.replaceState({}, null, '/');
-			}
-		}
-	};
-</script>

@@ -14,10 +14,11 @@
 * [Automatically fix errors](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) without explicitly passing a `--fix` flag
   * On [CI](https://docs.travis-ci.com/user/getting-started) [environments](https://www.appveyor.com/), this feature is disabled in order to encourage fixing code locally.
   * Users still can manually disable it with `--no-fix` flag.
-* Automatically ignore [generated files](https://github.com/shinnn/eslint-config/blob/v6.8.9/index.js#L10-L18), for example paths under `coverage/`, `tmp/` and `dist/`
+* Automatically ignore [generated files](https://github.com/shinnn/eslint-config/blob/v6.10.2/index.js#L10-L18), for example paths under `coverage/`, `tmp/` and `dist/`
 * Use a beautiful [codeframe](https://eslint.org/docs/user-guide/formatters/#codeframe) formatter by default
-* [Cache results](https://eslint.org/docs/user-guide/command-line-interface#caching) by default to operate only on the changed files
+* [Cache](https://eslint.org/docs/user-guide/command-line-interface#caching) results by default to operate only on the changed files
 * Allow CLI-friendly [`process.exit()`](https://nodejs.org/api/process.html#process_process_exit_code) to be used *only* inside [executables](https://docs.npmjs.com/files/package.json#bin)
+* Optional [Svelte](https://svelte.dev/) support
 
 ## Installation
 
@@ -33,6 +34,14 @@ Then add the following configuration to your project's [`package.json`](https://
 "eslintConfig": {
   "extends": "@shinnn"
 }
+```
+
+### Optional [Svelte](https://github.com/sveltejs/svelte) support
+
+When [`eslint-plugin-svelte3`](https://github.com/sveltejs/eslint-plugin-svelte3) is installed, this config also makes ESLint validate `.svelte` files.
+
+```
+npm install --save-dev eslint-plugin-svelte3
 ```
 
 ## CLI

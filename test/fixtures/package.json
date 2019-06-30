@@ -1,0 +1,7 @@
+{
+	"private": true,
+	"devDependencies": {
+		"eslint-plugin-svelte3": "*",
+		"tape": "*"
+	}
+}

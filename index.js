@@ -4,6 +4,8 @@ const {basename, extname, join, resolve} = require('path');
 const {renameSync} = require('fs');
 
 const attempt = require('lodash/attempt');
+const bind = require('lodash/bind');
+const isResolvable = require('is-resolvable');
 
 const cachePath = join(__dirname, '.eslintcache');
 const tmpCachePath = join(__dirname, '.tmp');
@@ -16,11 +18,9 @@ const ignored = [
 	'**/tmp',
 	'vendor'
 ].map(dir => `${dir}*/**/*`);
-
-const hasRollupConfigModule = process.env.HAS_RCM !== undefined ? process.env.HAS_RCM === '1' : require('is-resolvable')('rollup-config-module', {
-	paths: [resolve('node_modules')]
-});
-
+const isLocallyResolvable = bind(isResolvable, null, bind.placeholder, {paths: [resolve('node_modules')]});
+const hasRollupConfigModule = process.env.HAS_RCM !== undefined ? process.env.HAS_RCM === '1' : isLocallyResolvable('rollup-config-module');
+const hasSveltePlugin = isLocallyResolvable('eslint-plugin-svelte3');
 const {argv} = process;
 const isRunningEslintCli = argv[1] && basename(argv[1], extname(argv[1])) === 'eslint';
 
@@ -36,7 +36,7 @@ if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPA
 	const {status} = spawnSync(argv[0], [
 		...new Set([
 			argv[1],
-			...argv.some(flag => flag.startsWith('--ext')) ? [] : ['--ext=cjs,js,mjs'],
+			...argv.some(flag => flag.startsWith('--ext')) ? [] : [`--ext=cjs,js,mjs${hasSveltePlugin ? ',svelte' : ''}`],
 			.../^1|true$/ui.test(process.env.CI) || !!process.env.GITHUB_ACTION ? [] : [
 				...argv.includes('--no-cache') ? [] : ['--cache', `--cache-location=${cachePath}`],
 				...argv.includes('--no-fix') ? [] : ['--fix']
@@ -46,7 +46,6 @@ if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPA
 				...ignored.map(pattern => `--ignore-pattern=${pattern}`),
 				...hasRollupConfigModule ? ['--ignore-pattern=index.js'] : []
 			],
-			'--report-unused-disable-directives',
 			...argv.slice(2)
 		])
 	], {
@@ -75,7 +74,8 @@ module.exports = {
 	plugins: [
 		'no-use-extend-native',
 		'node',
-		'promise'
+		'promise',
+		...hasSveltePlugin ? ['svelte3'] : []
 	],
 	env: {
 		es6: true,
@@ -799,6 +799,13 @@ if (hasRollupConfigModule) {
 			'prefer-spread': 'off',
 			'prefer-template': 'off'
 		}
+	});
+}
+
+if (hasSveltePlugin) {
+	module.exports.overrides.push({
+		files: ['*.svelte'],
+		processor: 'svelte3/svelte3'
 	});
 }
 
