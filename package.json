@@ -1,6 +1,6 @@
 {
 	"name": "@shinnn/eslint-config",
-	"version": "7.0.0-0",
+	"version": "7.0.0-1",
 	"description": "shinnn's ESLint config",
 	"author": "Watanabe Shinnosuke (https://github.com/shinnn)",
 	"repository": "shinnn/eslint-config",
