@@ -138,7 +138,26 @@ async function runEslint(dir, {args, CI, travisCiWindows} = {}) {
 		'wrap-regex',
 
 		// ECMAScript 6: http://eslint.org/docs/rules/#ecmascript-6
-		'no-confusing-arrow'
+		'no-confusing-arrow',
+
+		// eslint-plugin-node Possible Errors https://github.com/mysticatea/eslint-plugin-node#possible-errors
+		'node/no-unsupported-features/es-builtins',
+		'node/no-unsupported-features/es-syntax',
+		'node/no-unsupported-features/node-builtins',
+
+		// eslint-plugin-node Stylistic Issues https://github.com/mysticatea/eslint-plugin-node#possible-errors
+		'node/exports-style',
+		'node/file-extension-in-import',
+
+		// https://github.com/xjamundx/eslint-plugin-promise
+		'promise/catch-or-return',
+		'promise/no-native',
+		'promise/no-nesting',
+		'promise/no-promise-in-callback',
+		'promise/avoid-new',
+		'promise/no-new-statics',
+		// because it has no documentation https://github.com/xjamundx/eslint-plugin-promise/issues/118
+		'promise/prefer-await-to-callbacks'
 	];
 	const actuallyUnconfigured = unconfiguredESLintRules({configFile: require.resolve('..')});
 	const unexpected = {

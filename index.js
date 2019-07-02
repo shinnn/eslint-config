@@ -710,18 +710,22 @@ module.exports = {
 		'node/prefer-global/text-encoder': 'error',
 		'node/prefer-global/url-search-params': 'error',
 		'node/prefer-global/url': 'error',
+		'node/prefer-promises/dns': 'error',
+		'node/prefer-promises/fs': 'error',
 
 		// eslint-plugin-promise https://github.com/xjamundx/eslint-plugin-promise
+		'promise/param-names': 'error',
+		'promise/always-return': 'error',
 		'promise/no-return-wrap': [
 			'error',
 			{
 				allowReject: true
 			}
 		],
+		'promise/no-callback-in-promise': 'error',
 		'promise/no-return-in-finally': 'error',
-		'promise/param-names': 'error',
-		'promise/prefer-await-to-then': 'error',
-		'promise/valid-params': 'error'
+		'promise/valid-params': 'error',
+		'promise/prefer-await-to-then': 'error'
 	},
 	overrides: [
 		{

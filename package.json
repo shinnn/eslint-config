@@ -51,7 +51,7 @@
 		"eslint-plugin-svelte3": "^2.5.0",
 		"ora": "^3.4.0",
 		"svelte": "^3.6.4",
-		"unconfigured-eslint-rules": "^6.0.0"
+		"unconfigured-eslint-rules": "^7.0.0"
 	},
 	"eslintConfig": {
 		"extends": "./index.js",

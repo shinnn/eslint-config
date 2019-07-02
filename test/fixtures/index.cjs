@@ -6,7 +6,7 @@
 // Line comment
 process.emv.npm_config_production = true;
 
-const {readFile} = require('fs');
+const {readFile} = require('fs').promises;
 const {resolve} = require('path');
 
 const {createFileSystemWatcher} = require('vscode').workspace;
@@ -110,26 +110,21 @@ const encoding = ['utf8'].filter(() => typeof this === 'string');
 	}
 })();
 
-module.exports = function fn() {
-	readFile(resolve(__dirname, 'foo/bar/baz/qux.txt'), {encoding}, (err, contents) => {
-		if (err) {
-			throw err;
-		}
+module.exports = async function fn() {
+	const contents = await readFile(resolve(__dirname, 'foo/bar/baz/qux.txt'), {encoding});
+	console.log(`Read ${window.count++} file(s): ${contents}`);
 
-		console.log(`Read ${window.count++} file(s): ${contents}`);
+	let isValidJson;
+	try {
+		JSON.parse(contents);
+		isValidJson = true;
+	} catch {}
 
-		let isValidJson;
-		try {
-			JSON.parse(contents);
-			isValidJson = true;
-		} catch {}
+	if (!isValidJson) {
+		console.log('The file is not a valid JSON.');
+		return false;
+	}
 
-		if (!isValidJson) {
-			console.log('The file is not a valid JSON.');
-			return false;
-		}
-
-		console.log('The file is a valid JSON.');
-		return true;
-	});
+	console.log('The file is a valid JSON.');
+	return true;
 };
