@@ -64,9 +64,11 @@ if (isRunningEslintCli && !argv.includes('--stdin') && !process.env.ESLINT_RESPA
 const fromPairs = require('lodash/fromPairs');
 
 const {bin, files, module: moduleEntry, private: isPrivate} = attempt(require, resolve('package.json'));
+const hasBabelEslint = isLocallyResolvable('babel-eslint');
 const isNpmPackageModuleWithoutBrowserSupport = !hasRollupConfigModule && files && !moduleEntry && !isPrivate;
 
 module.exports = {
+	...hasBabelEslint ? {parser: 'babel-eslint'} : {},
 	parserOptions: {
 		ecmaVersion: 10,
 		sourceType: 'module'

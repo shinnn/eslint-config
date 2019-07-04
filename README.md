@@ -9,7 +9,7 @@
 ## Features
 
 * Enforce tab indents to save file size
-* Support [ECMAScript 2019](http://2ality.com/2018/02/ecmascript-2019.html) features – [optional `catch` binding](https://github.com/tc39/proposal-optional-catch-binding) and [JSON superset](https://github.com/tc39/proposal-json-superset)
+* Support [ECMAScript 2019](http://2ality.com/2018/02/ecmascript-2019.html) features for example [optional `catch` binding](https://github.com/tc39/proposal-optional-catch-binding), and more [experimental](https://github.com/tc39/proposals) ones when [babel-eslint](https://www.npmjs.com/package/babel-eslint) is installed
 * [Target](https://eslint.org/docs/user-guide/command-line-interface#--ext) `.cjs` and `.mjs` file extension by default to support [ECMAScript modules](https://nodejs.org/api/esm.html)
 * [Automatically fix errors](https://eslint.org/docs/user-guide/command-line-interface#fixing-problems) without explicitly passing a `--fix` flag
   * On [CI](https://docs.travis-ci.com/user/getting-started) [environments](https://www.appveyor.com/), this feature is disabled in order to encourage fixing code locally.
@@ -36,7 +36,20 @@ Then add the following configuration to your project's [`package.json`](https://
 }
 ```
 
-### Optional [Svelte](https://github.com/sveltejs/svelte) support
+### Optional setups
+
+#### [babel-eslint](https://github.com/sveltejs/svelte) utilization
+
+When [`babel-eslint`](https://github.com/babel/babel-eslint) is installed, this config automatically uses it as a [parser](https://eslint.org/docs/user-guide/configuring#specifying-parser). There is no need to add `"parser": "babel-eslint"` to the `package.json` explicitly.
+
+```
+npm install --save-dev babel-eslint
+```
+
+`babel-eslint` lets ESLint parse experimental ECMAScript syntax the default parser doesn't support, for example [class fields](https://github.com/tc39/proposal-class-fields) and [`BigInt`](https://github.com/tc39/proposal-bigint).
+
+
+#### [Svelte](https://github.com/sveltejs/svelte) support
 
 When [`eslint-plugin-svelte3`](https://github.com/sveltejs/eslint-plugin-svelte3) is installed, this config also makes ESLint validate `.svelte` files.
 
