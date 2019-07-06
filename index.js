@@ -74,6 +74,7 @@ module.exports = {
 		sourceType: 'module'
 	},
 	plugins: [
+		'eslint-comments',
 		'no-use-extend-native',
 		'node',
 		'promise',
@@ -688,6 +689,19 @@ module.exports = {
 				after: false
 			}
 		],
+
+		// eslint-plugin-eslint-comments https://github.com/mysticatea/eslint-plugin-eslint-comments
+		'eslint-comments/disable-enable-pair': [
+			'error',
+			{
+				allowWholeFile: true
+			}
+		],
+		'eslint-comments/no-aggregating-enable': 'error',
+		'eslint-comments/no-duplicate-disable': 'error',
+		'eslint-comments/no-unlimited-disable': 'error',
+		'eslint-comments/no-unused-disable': 'error',
+		'eslint-comments/no-unused-enable': 'error',
 
 		// eslint-plugin-no-use-extend-native https://github.com/dustinspecker/eslint-plugin-no-use-extend-native
 		'no-use-extend-native/no-use-extend-native': 'error',

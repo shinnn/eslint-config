@@ -158,15 +158,18 @@ async function runEslint(dir, {args, CI, travisCiWindows} = {}) {
 		'promise/avoid-new',
 		'promise/no-new-statics',
 		// because it has no documentation https://github.com/xjamundx/eslint-plugin-promise/issues/118
-		'promise/prefer-await-to-callbacks'
+		'promise/prefer-await-to-callbacks',
+
+		// https://github.com/mysticatea/eslint-plugin-eslint-comments
+		'eslint-comments/no-restricted-disable',
+		'eslint-comments/no-use'
 	];
 	const actuallyUnconfigured = unconfiguredESLintRules({configFile: require.resolve('..')});
-	const unexpected = {
-		unconfigured: difference(actuallyUnconfigured, explicitlyUnconfigured),
-		configured: difference(explicitlyUnconfigured, actuallyUnconfigured)
-	};
 
-	for (const [key, rules] of Object.entries(unexpected)) {
+	for (const [key, rules] of new Map([
+		['unconfigured', difference(actuallyUnconfigured, explicitlyUnconfigured)],
+		['configured', difference(explicitlyUnconfigured, actuallyUnconfigured)]
+	])) {
 		if (rules.length === 0) {
 			continue;
 		}
